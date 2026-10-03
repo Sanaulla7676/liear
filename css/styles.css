@@ -803,3 +803,82 @@ body.cursor-hover .floating-cursor{width:46px;height:46px;background:rgba(43,139
   #page-home .hero-scanner-cover{left:39%;bottom:7%;width:20%;height:28%}
   #page-home .hero-scanner-overlay{left:40%;bottom:6%;width:16%;height:27%;transform:rotate(6deg)}
 }
+
+/* === FINAL HOME HERO CLIENT UPDATES === */
+#page-home .hero-reference-wrap{position:relative}
+#page-home .hero-brand-strip-mask{
+  position:absolute;
+  z-index:7;
+  left:0;
+  right:29%;
+  bottom:0;
+  height:12%;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(247,251,255,0),rgba(247,251,255,.96) 22%,#f7fbff 62%,#f7fbff 100%);
+}
+#page-home .hero-years-mask{
+  position:absolute;
+  z-index:10;
+  left:28.5%;
+  top:77.2%;
+  width:11%;
+  height:11.5%;
+  border-radius:10px;
+  pointer-events:none;
+  background:rgba(247,251,255,.94);
+  box-shadow:0 0 22px rgba(247,251,255,.92);
+}
+#page-home .hero-years-overlay{
+  position:absolute;
+  z-index:11;
+  left:30%;
+  top:78.3%;
+  width:9%;
+  min-width:125px;
+  pointer-events:none;
+  text-align:left;
+  color:#10233d;
+}
+#page-home .hero-years-overlay strong{
+  display:block;
+  font-size:clamp(18px,1.55vw,31px);
+  line-height:1.05;
+  letter-spacing:-.04em;
+  font-weight:950;
+}
+#page-home .hero-years-overlay span{
+  display:block;
+  margin-top:4px;
+  font-size:clamp(8px,.62vw,12px);
+  color:#60738a;
+  font-weight:700;
+}
+#page-home .hero-whatsapp-cta{
+  flex-direction:column;
+  gap:4px;
+  min-height:58px;
+  padding:8px 12px;
+  text-align:center;
+}
+#page-home .hero-whatsapp-cta span{
+  display:block;
+  font-size:clamp(12px,1vw,18px);
+}
+#page-home .hero-whatsapp-cta small{
+  display:block;
+  font-size:clamp(7px,.58vw,11px);
+  font-weight:800;
+  line-height:1.15;
+}
+@media(max-width:1100px){
+  #page-home .hero-brand-strip-mask{right:26%;height:13%}
+  #page-home .hero-years-mask{left:27%;top:77%;width:13%;height:12%}
+  #page-home .hero-years-overlay{left:29%;top:78%;width:11%;min-width:110px}
+}
+@media(max-width:760px){
+  #page-home .hero-brand-strip-mask{right:16%;height:12%}
+  #page-home .hero-years-mask{left:27%;top:79%;width:21%;height:11%}
+  #page-home .hero-years-overlay{left:30%;top:80%;width:18%;min-width:0}
+  #page-home .hero-years-overlay strong{font-size:18px}
+  #page-home .hero-years-overlay span{font-size:8px}
+}
