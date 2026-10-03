@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   set(".breadcrumb","Home › Products › "+p.category+" › "+p.name);set(".detail-copy .tag","Leartech");set(".detail-copy h1",p.name);
   if(main){main.src=productImagePath(p,1);main.alt=p.name}
   const strip=thumbs||document.createElement("div"); strip.className="gallery-thumbs";
-  strip.innerHTML=Array.from({length:p.views},(_,i)=>`<button class="gallery-thumb ${i===0?"active":""}" type="button" data-index="${i+1}" aria-label="View ${i+1}"><img src="${productImagePath(p,i+1)}" alt="${p.name} view ${i+1}" loading="lazy"></button>`).join("");
+  strip.innerHTML=`<button class="gallery-thumb active" type="button" data-index="1" aria-label="View 1"><img src="${productImagePath(p,1)}" alt="${p.name} view 1" loading="lazy"></button>`;
   if(!thumbs)root.querySelector(".gallery")?.appendChild(strip);
   else thumbs.replaceWith(strip);
   strip.querySelectorAll(".gallery-thumb").forEach(btn=>btn.addEventListener("click",()=>{strip.querySelectorAll(".gallery-thumb").forEach(x=>x.classList.remove("active"));btn.classList.add("active");main.src=productImagePath(p,Number(btn.dataset.index))}));
