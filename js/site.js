@@ -97,3 +97,14 @@ document.addEventListener("DOMContentLoaded",()=>{
   document.querySelectorAll(".float .wa").forEach(el=>el.innerHTML=wa);
   document.querySelectorAll(".float .call").forEach(el=>el.innerHTML=tel);
 });
+
+/* Compact navigation interaction */
+document.addEventListener("DOMContentLoaded",()=>{
+  const header=document.querySelector("header");
+  if(!header) return;
+  const updateNav=()=>{
+    header.classList.toggle("nav-scrolled",(window.scrollY||0)>18);
+  };
+  updateNav();
+  window.addEventListener("scroll",updateNav,{passive:true});
+});
