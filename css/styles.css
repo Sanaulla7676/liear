@@ -1237,3 +1237,39 @@ header.scrolled{
 #industryCards .industry-photo{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;min-height:230px!important;object-fit:cover!important;object-position:center!important}
 @media(max-width:820px){#industryCards .industry-visual-media{height:210px!important;min-height:210px!important}#industryCards .industry-photo{min-height:210px!important}}
 @media(max-width:560px){#industryCards .industry-visual-media{height:220px!important;min-height:220px!important}#industryCards .industry-photo{min-height:220px!important}}
+
+/* ===== FINAL MEDIA RELIABILITY ===== */
+#page-home .hero-reference{padding:0!important;background:#fff}
+#page-home .hero-reference-wrap{position:relative!important;width:100vw!important;max-width:100vw!important;margin-left:calc(50% - 50vw)!important;overflow:hidden!important;background:#fff!important;line-height:0!important}
+#page-home .hero-reference-art{display:block!important;width:100%!important;height:auto!important;min-width:100%!important;max-width:none!important;object-fit:cover!important;border-radius:0!important;box-shadow:none!important;transform:none!important;filter:none!important}
+#page-home .hero-brand-mask{position:absolute;left:0;right:0;bottom:0;height:14%;z-index:3;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.18) 18%,#fff 72%,#fff 100%);pointer-events:none}
+#page-home .hero-quick-contact{position:absolute;left:4.25%;top:48.5%;z-index:6;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+#page-home .hero-contact-pill{height:46px;padding:0 17px;border-radius:14px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-size:10px;font-weight:950;letter-spacing:.01em;box-shadow:0 10px 28px rgba(9,29,52,.16);backdrop-filter:blur(14px);transition:transform .25s var(--ease-out),box-shadow .25s ease,filter .25s ease}
+#page-home .hero-contact-pill:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(9,29,52,.2);filter:brightness(1.02)}
+#page-home .hero-contact-pill svg{width:19px;height:19px;fill:currentColor;flex:none}
+#page-home .hero-contact-call{background:#fff;color:#0b1d34;border:1px solid rgba(255,255,255,.95)}
+#page-home .hero-contact-wa{background:#16b95f;color:#fff;border:1px solid #0f9f51}
+#page-home .hero-sr-copy{position:absolute!important;left:-99999px!important}
+.float a{display:grid!important;place-items:center!important}
+.float .wa{background:#16b95f!important}
+.float .call{background:#0b1d34!important}
+.float .icon-svg{width:22px!important;height:22px!important;fill:currentColor!important;display:block!important}
+.float a:hover{transform:translateY(-3px) scale(1.04)!important}
+#page-home .hero-reference-wrap + *{}
+#page-home .hero-hotspot{z-index:5}
+@media(max-width:760px){
+ #page-home .hero-reference-wrap{width:100%!important;max-width:100%!important;margin-left:0!important}
+ #page-home .hero-quick-contact{left:4%;top:47%;gap:6px}
+ #page-home .hero-contact-pill{height:40px;padding:0 11px;font-size:8px;border-radius:12px}
+ #page-home .hero-contact-pill svg{width:16px;height:16px}
+ #page-home .hero-brand-mask{height:13%}
+}
+
+/* Industry page must never disappear because an animation script fails. */
+#industryCards{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:15px!important;visibility:visible!important;opacity:1!important}
+#industryCards .industry-visual-card{display:block!important;visibility:visible!important;opacity:1!important;transform:none!important}
+#industryCards .industry-visual-media{height:240px!important;min-height:240px!important;background:#eef4f9!important;overflow:hidden!important;position:relative!important}
+#industryCards .industry-photo{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;min-height:240px!important;object-fit:cover!important;object-position:center!important}
+@media(max-width:1120px){#industryCards{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+@media(max-width:820px){#industryCards{grid-template-columns:repeat(2,minmax(0,1fr))!important}#industryCards .industry-visual-media{height:220px!important;min-height:220px!important}#industryCards .industry-photo{min-height:220px!important}}
+@media(max-width:560px){#industryCards{grid-template-columns:1fr!important}#industryCards .industry-visual-media{height:240px!important;min-height:240px!important}#industryCards .industry-photo{min-height:240px!important}}
