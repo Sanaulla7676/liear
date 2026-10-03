@@ -3,9 +3,9 @@
 
   const SITE = {
     name: "Leartech Automation Ventures",
-    phone: "+918618605066",
+    phone: "+918618605966",
     email: "info@leartech.in",
-    address: "Chandra Layout, Bengaluru – 560072",
+    address: "No. 40(S), SBI Bank Opp. Road, 2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040",
     siteUrl: (function(){
       const p = location.pathname.replace(/\\/g,"/");
       const base = p.endsWith("/") ? p : p.replace(/\/[^/]*$/, "/");
@@ -35,21 +35,21 @@
       <section class="fx-section fx-command" aria-labelledby="fx-command-title">
         <div class="container">
           <div class="fx-kicker">THE OPERATING LAYER</div>
-          <div class="fx-heading-row"><div><h2 id="fx-command-title">Everything your counter depends on, connected.</h2><p>Hardware, software, stock movement and customer workflows are presented as one practical system instead of a pile of disconnected products.</p></div><a class="fx-text-link" href="products.html">Explore the system ${icon.arrow}</a></div>
+          <div class="fx-heading-row"><div><h2 id="fx-command-title">A billing setup built around the way your counter works.</h2><p>Choose the <strong>hardware</strong>, <strong>software</strong> and <strong>support</strong> you actually need, with clear product information before you make an enquiry.</p></div><a class="fx-text-link" href="products.html">Explore the system ${icon.arrow}</a></div>
           <div class="fx-feature-grid">
             <article class="fx-card"><span class="fx-number">01</span><b>Fast Checkout</b><p>Touch-first interfaces, barcode entry and receipt workflows built around busy counters.</p><small>Counter speed</small></article>
             <article class="fx-card"><span class="fx-number">02</span><b>Inventory Visibility</b><p>Keep product movement and stock information close to everyday billing decisions.</p><small>Stock awareness</small></article>
             <article class="fx-card"><span class="fx-number">03</span><b>Hardware Stack</b><p>POS screens, scanners, thermal printers, drawers and supporting devices in one catalogue.</p><small>Complete setup</small></article>
             <article class="fx-card"><span class="fx-number">04</span><b>Business Reporting</b><p>Turn transactions into useful summaries for owners and operational teams.</p><small>Operational clarity</small></article>
-            <article class="fx-card"><span class="fx-number">05</span><b>Service & Setup</b><p>Installation guidance, configuration help and practical assistance after purchase.</p><small>Human support</small></article>
-            <article class="fx-card"><span class="fx-number">06</span><b>Scalable Workflow</b><p>Start with the counter you have and expand the stack as the business grows.</p><small>Future-ready</small></article>
+            <article class="fx-card"><span class="fx-number">05</span><b>Service & Setup</b><p>Installation guidance, configuration help and practical assistance after purchase.</p><small>After-sales help</small></article>
+            <article class="fx-card"><span class="fx-number">06</span><b>Scalable Workflow</b><p>Start with the counter you have and expand the stack as the business grows.</p><small>Easy to expand</small></article>
           </div>
         </div>
       </section>
       <section class="fx-section fx-flow">
         <div class="container">
           <div class="fx-kicker">HOW IT WORKS</div>
-          <div class="fx-heading-row"><div><h2>From first enquiry to daily operation.</h2><p>A clearer buying journey means fewer surprises when the system reaches your counter.</p></div></div>
+          <div class="fx-heading-row"><div><h2>From enquiry to installation and everyday use.</h2><p>A clearer buying journey means fewer surprises when the system reaches your counter.</p></div></div>
           <div class="fx-flow-track">
             <div class="fx-flow-step"><span>01</span><b>Discover</b><small>Business type + workflow</small></div>
             <div class="fx-flow-step"><span>02</span><b>Configure</b><small>Products + software</small></div>
@@ -64,11 +64,11 @@
           <div class="fx-kicker">COMMON QUESTIONS</div>
           <div class="fx-heading-row"><div><h2>Before you upgrade.</h2><p>Useful answers for business owners comparing billing hardware, software and support.</p></div><a class="fx-text-link" href="contact.html">Talk to Leartech ${icon.arrow}</a></div>
           <div class="fx-faq-grid">
-            <details><summary>Which businesses can use these systems?</summary><p>Leartech presents solutions for retail, groceries, food service, fashion, electronics, automotive, hospitality, salons, beauty, trade and other billing-led operations.</p></details>
+            <details><summary>Which businesses can use these systems?</summary><p>Leartech serves <strong>retail</strong>, <strong>grocery</strong>, <strong>food service</strong>, <strong>fashion</strong>, <strong>electronics</strong>, <strong>automotive</strong>, <strong>hospitality</strong>, <strong>salons</strong>, <strong>beauty</strong>, <strong>trade</strong> and other billing-led businesses.</p></details>
             <details><summary>Can I combine hardware and software?</summary><p>Yes. The catalogue is organized so businesses can evaluate hardware and software as connected parts of a counter setup.</p></details>
             <details><summary>Can I ask for a complete setup instead of one product?</summary><p>Yes. Use the quote flow and describe your business type, number of counters and the devices you need.</p></details>
             <details><summary>How do I choose the right printer or scanner?</summary><p>Start with transaction volume, receipt or label needs, connectivity and counter space. The product detail pages expose the available workflow information.</p></details>
-            <details><summary>Do you provide support after purchase?</summary><p>The website is structured around installation guidance, configuration support, training and after-sales assistance.</p></details>
+            <details><summary>Do you provide support after purchase?</summary><p>Support covers <strong>setup guidance</strong>, <strong>configuration help</strong>, <strong>training</strong> and <strong>after-sales assistance</strong>.</p></details>
             <details><summary>Where is Leartech based?</summary><p>Leartech Automation Ventures lists Chandra Layout, Bengaluru as its local presence and supports enquiries by phone and WhatsApp.</p></details>
           </div>
         </div>
@@ -79,7 +79,7 @@
       <section class="fx-section fx-buying-guide">
         <div class="container">
           <div class="fx-kicker">BUYING GUIDE</div>
-          <div class="fx-heading-row"><div><h2>Choose by workflow, not by jargon.</h2><p>Use the product catalogue to build a practical stack around how your counter actually works.</p></div></div>
+          <div class="fx-heading-row"><div><h2>Choose equipment around the job it needs to do.</h2><p>Use the product catalogue to build a practical stack around how your counter actually works.</p></div></div>
           <div class="fx-guide-grid">
             <article class="fx-card"><b>Need fast checkout?</b><p>Start with touchscreen POS or billing hardware, then add the printer and scanner your counter needs.</p></article>
             <article class="fx-card"><b>Need product identification?</b><p>Use barcode scanners, barcode printers and labels as the identification layer of the workflow.</p></article>
@@ -156,7 +156,7 @@
       <section class="fx-section fx-company">
         <div class="container">
           <div class="fx-kicker">THE COMPANY LAYER</div>
-          <div class="fx-heading-row"><div><h2>A practical technology partner, not just a product shelf.</h2><p>The website now explains how the product catalogue, software offering, business fit and support journey connect into one customer experience.</p></div></div>
+          <div class="fx-heading-row"><div><h2>A clearer way to choose your billing setup.</h2><p>Browse the catalogue, understand the business fit, and contact the team with a specific requirement.</p></div></div>
           <div class="fx-feature-grid">
             <article class="fx-card"><b>Products</b><p>Hardware and consumables for the billing counter.</p></article>
             <article class="fx-card"><b>Software</b><p>Billing, inventory, customer and reporting workflows.</p></article>
@@ -191,6 +191,30 @@
     footer.insertAdjacentHTML("beforebegin",cfg.html);
   }
 
+  function addBusinessProfileSection(){
+    if(document.querySelector(".fx-business-profile")) return;
+    const footer=document.querySelector("footer");
+    if(!footer) return;
+    footer.insertAdjacentHTML("beforebegin",`
+      <section class="fx-section fx-business-profile" aria-labelledby="fx-business-title">
+        <div class="container">
+          <div class="fx-kicker">LOCAL BUSINESS INFORMATION</div>
+          <div class="fx-heading-row">
+            <div>
+              <h2 id="fx-business-title">Leartech in <strong>Chandra Layout, Bengaluru.</strong></h2>
+              <p>For <strong>billing machines</strong>, <strong>thermal printers</strong>, <strong>billing software</strong> and <strong>touch screen billing machines</strong>, visit the Leartech business location or contact the team before you travel.</p>
+            </div>
+            <a class="fx-text-link" href="https://www.google.com/maps/search/?api=1&query=No.40(S),SBI%20Bank%20Opp.%20Road,2nd%20A%20Main,1st%20Stage,2nd%20Phase,Chandra%20Layout,Bengaluru,560040" target="_blank" rel="noopener">Get directions ${icon.arrow}</a>
+          </div>
+          <div class="fx-business-grid">
+            <article class="fx-business-card"><span class="fx-business-label">ADDRESS</span><strong>No. 40(S), SBI Bank Opp. Road</strong><p>2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040</p></article>
+            <article class="fx-business-card"><span class="fx-business-label">PHONE</span><strong><a href="tel:+918618605966">+91 86186 05966</a></strong><p>Call for product enquiries, pricing discussions and service requirements.</p></article>
+            <article class="fx-business-card"><span class="fx-business-label">HOURS</span><strong>Monday–Saturday · 9:30 AM–6:30 PM</strong><p>Sunday closed. Confirm availability before visiting for a specific product or service.</p></article>
+            <article class="fx-business-card"><span class="fx-business-label">WHAT WE HANDLE</span><strong>Billing & POS equipment</strong><p>Billing machines, thermal printers, billing software, touch screen billing, barcode devices, cash-counting equipment, consumables and related service support.</p></article>
+          </div>
+        </div>
+      </section>`);
+  }
   function addSkipLink(){
     if(document.querySelector(".fx-skip")) return;
     const a=document.createElement("a");
@@ -253,7 +277,7 @@
     const schema={
       "@context":"https://schema.org",
       "@graph":[
-        {"@type":"Organization","@id":SITE.siteUrl+"#organization","name":SITE.name,"url":SITE.siteUrl,"telephone":SITE.phone,"email":SITE.email,"address":{"@type":"PostalAddress","streetAddress":"Chandra Layout","addressLocality":"Bengaluru","postalCode":"560072","addressCountry":"IN"}},
+        {"@type":"LocalBusiness","@id":SITE.siteUrl+"#organization","name":SITE.name,"url":SITE.siteUrl,"telephone":SITE.phone,"email":SITE.email,"address":{"@type":"PostalAddress","streetAddress":"No. 40(S), SBI Bank Opp. Road, 2nd A Main, 1st Stage, 2nd Phase, Chandra Layout","addressLocality":"Bengaluru","postalCode":"560040","addressRegion":"Karnataka","addressCountry":"IN"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:30","closes":"18:30"}],"areaServed":{"@type":"City","name":"Bengaluru"},"knowsAbout":["Billing Machines","Thermal Printers","Billing Software","Touch Screen Billing Machines","Barcode Scanners","Currency Counting Machines","Billing Machine Repair & Service","Thermal Paper Rolls"]},
         {"@type":"WebSite","@id":SITE.siteUrl+"#website","name":SITE.name,"url":SITE.siteUrl,"publisher":{"@id":SITE.siteUrl+"#organization"}},
         {"@type":"WebPage","@id":SITE.siteUrl+"#webpage","name":document.title,"url":SITE.siteUrl}
       ]
@@ -342,6 +366,7 @@
 
   document.addEventListener("DOMContentLoaded",()=>{
     appendPageEnhancement();
+    addBusinessProfileSection();
     addSkipLink();
     addSEO();
     normalizeFloatingButtons();
