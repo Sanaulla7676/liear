@@ -729,6 +729,16 @@
     document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
   }
 
+
+  function addGlobalMobileBar(){
+    if(document.querySelector(".ux-mobile-bar")) return;
+    const bar=document.createElement("div");
+    bar.className="ux-mobile-bar";
+    bar.innerHTML='<a href="tel:+918618605966" aria-label="Call Leartech"><span>☎</span>Call</a><button type="button" data-ux-open-setup><span>✦</span>Quick Setup</button><a href="https://wa.me/918618605966" target="_blank" rel="noopener" aria-label="WhatsApp Leartech"><span>◉</span>WhatsApp</a>';
+    document.body.appendChild(bar);
+    bar.querySelector("[data-ux-open-setup]")?.addEventListener("click",()=>document.querySelector(".ux-setup-trigger")?.click());
+  }
+
   function addSearchShortcut(){
     document.addEventListener("keydown",e=>{
       if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
@@ -746,6 +756,7 @@
     setPageTheme();
     addPageUtilities();
     ensureGlobalQuickSetup();
+    addGlobalMobileBar();
     addSearchShortcut();
     addContactMap();
     addSkipLink();
