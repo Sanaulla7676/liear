@@ -272,6 +272,17 @@
     head.appendChild(script);
   }
 
+  function normalizeFloatingButtons(){
+    document.querySelectorAll(".float .wa").forEach(a=>{
+      a.setAttribute("aria-label","WhatsApp");
+      a.innerHTML='<span class="contact-icon contact-icon-wa"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 5a11 11 0 0 0-9.3 16.8L5 27l5.4-1.7A11 11 0 1 0 16 5Zm0 20a8.9 8.9 0 0 1-4.5-1.2l-.4-.2-3.1 1 1-3.1-.2-.4A8.9 8.9 0 1 1 16 25Zm4.3-6.5c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.5-.7-2.6-1.4-3.6-3-.1-.2-.1-.3.1-.5l.5-.5c.1-.2.2-.3.1-.5l-.6-1.4c-.2-.4-.3-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.6 1 2.8c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"/></svg></span>';
+    });
+    document.querySelectorAll(".float .call").forEach(a=>{
+      a.setAttribute("aria-label","Call");
+      a.innerHTML='<span class="contact-icon contact-icon-call"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.8 3.5 9.4 2.7c.7-.2 1.4.2 1.7.9l1.1 2.8c.2.6 0 1.3-.5 1.6l-1.8 1.1c.8 1.8 2.3 3.3 4.1 4.1l1.1-1.7c.3-.5 1-.7 1.6-.5l2.8 1.1c.7.3 1.1 1 .9 1.7l-.8 2.5c-.2.7-.9 1.2-1.7 1.2-6.3-.2-11.4-5.3-11.6-11.6 0-.8.5-1.5 1.2-1.7Z"/></svg></span>';
+    });
+  }
+
   function upgradeContactIcons(){
     document.querySelectorAll(".contact-icon-wa").forEach(el=>{
       el.innerHTML='<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 5a11 11 0 0 0-9.3 16.8L5 27l5.4-1.7A11 11 0 1 0 16 5Zm0 20a8.9 8.9 0 0 1-4.5-1.2l-.4-.2-3.1 1 1-3.1-.2-.4A8.9 8.9 0 1 1 16 25Zm4.3-6.5c-.2-.1-1.2-.6-1.4-.7-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.5-.7-2.6-1.4-3.6-3-.1-.2-.1-.3.1-.5l.5-.5c.1-.2.2-.3.1-.5l-.6-1.4c-.2-.4-.3-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.6 1 2.8c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.5 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"/></svg>';
@@ -333,6 +344,7 @@
     appendPageEnhancement();
     addSkipLink();
     addSEO();
+    normalizeFloatingButtons();
     upgradeContactIcons();
     revealFX();
     activateMicroInteractions();
