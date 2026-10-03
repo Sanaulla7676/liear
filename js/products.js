@@ -2,7 +2,7 @@
 (function(){
   "use strict";
 
-  const WA_NUMBER = "918618605066";
+  const WA_NUMBER = "918618605966";
   const GALLERY_CACHE = new Map();
   const SCRIPT_PROMISES = new Map();
   const CART_KEY = "leartech_quote_cart";
@@ -443,4 +443,53 @@
     initStandalonePage();
     initHomeCards();
   });
+
+  function ensureQuickSetupUI(){
+    if(document.querySelector('.ux-quick-setup')) return;
+    const page=document.body.dataset.page||'';
+    const contextualLabel=page==='products'?'Build a complete counter':page==='support'?'Request support':page==='contact'?'Start an enquiry':'Find my setup';
+    const host=document.createElement('div');
+    host.className='ux-quick-setup';
+    host.innerHTML=
+      '<button class="ux-setup-trigger" type="button" aria-haspopup="dialog" aria-controls="uxSetupDialog"><span class="ux-setup-icon">✦</span><span>'+contextualLabel+'</span></button>'+\
+      '<div class="ux-setup-backdrop" data-setup-close></div>'+\
+      '<section class="ux-setup-dialog" id="uxSetupDialog" role="dialog" aria-modal="true" aria-labelledby="uxSetupTitle">'+\
+        '<button class="ux-setup-close" type="button" data-setup-close aria-label="Close">×</button>'+\
+        '<div class="ux-setup-kicker">QUICK SETUP FINDER</div>'+\
+        '<h2 id="uxSetupTitle">Tell us how your counter works.</h2>'+\
+        '<p class="ux-setup-intro">Three quick answers are enough to prepare a focused enquiry. No account, no maze of forms.</p>'+\
+        '<div class="ux-stepper"><span class="active" data-step-dot="1">1</span><i></i><span data-step-dot="2">2</span><i></i><span data-step-dot="3">3</span></div>'+\
+        '<div class="ux-setup-step active" data-step="1"><label>What type of business are you running?<select id="uxBusiness"><option>Retail Store</option><option>Grocery / Supermarket</option><option>Restaurant / Café</option><option>Fashion / Apparel</option><option>Electronics</option><option>Automotive</option><option>Salon / Beauty</option><option>Other</option></select></label><button class="btn primary" type="button" data-next-step>Continue →</button></div>'+\
+        '<div class="ux-setup-step" data-step="2"><label>How many billing points?<select id="uxCounters"><option>1 counter</option><option>2 counters</option><option>3–5 counters</option><option>6+ counters</option><option>Not decided</option></select></label><button class="btn primary" type="button" data-next-step>Continue →</button></div>'+\
+        '<div class="ux-setup-step" data-step="3"><label>What do you need?<textarea id="uxNeed" placeholder="Example: touchscreen POS, thermal printer and barcode scanner..."></textarea></label><button class="btn primary" type="button" data-setup-send>Send setup enquiry on WhatsApp →</button></div>'+\
+      '</section>';
+    document.body.appendChild(host);
+    const open=()=>{host.classList.add('open');host.querySelector('.ux-setup-trigger')?.setAttribute('aria-expanded','true');host.querySelector('select,textarea')?.focus()};
+    const close=()=>{host.classList.remove('open');host.querySelector('.ux-setup-trigger')?.setAttribute('aria-expanded','false')};
+    host.querySelector('.ux-setup-trigger').addEventListener('click',open);
+    host.querySelectorAll('[data-setup-close]').forEach(el=>el.addEventListener('click',close));
+    let step=1;
+    const showStep=n=>{step=n;host.querySelectorAll('.ux-setup-step').forEach(el=>el.classList.toggle('active',Number(el.dataset.step)===n));host.querySelectorAll('[data-step-dot]').forEach(el=>el.classList.toggle('active',Number(el.dataset.stepDot)<=n));};
+    host.querySelectorAll('[data-next-step]').forEach(btn=>btn.addEventListener('click',()=>showStep(Math.min(step+1,3))));
+    host.querySelector('[data-setup-send]')?.addEventListener('click',()=>{
+      const business=host.querySelector('#uxBusiness')?.value||'';
+      const counters=host.querySelector('#uxCounters')?.value||'';
+      const need=host.querySelector('#uxNeed')?.value.trim()||'Please recommend the right billing setup.';
+      const msg=['Hi Leartech, I would like help choosing a billing/POS setup.','','Business: '+business,'Billing points: '+counters,'Requirement: '+need].join('\\n');
+      window.open('https://wa.me/918618605966?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+      close();
+    });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  }
+
+  function initMobileActionBar(){
+    if(document.querySelector('.ux-mobile-bar')) return;
+    const bar=document.createElement('div'); bar.className='ux-mobile-bar';
+    bar.innerHTML='<a href="tel:+918618605966"><span>☎</span>Call</a><button type="button" data-ux-open-setup><span>✦</span>Quick Setup</button><a href="https://wa.me/918618605966" target="_blank" rel="noopener"><span>◉</span>WhatsApp</a>';
+    document.body.appendChild(bar);
+    bar.querySelector('[data-ux-open-setup]')?.addEventListener('click',()=>document.querySelector('.ux-setup-trigger')?.click());
+  }
+
+  document.addEventListener('DOMContentLoaded',()=>{ensureQuickSetupUI();initMobileActionBar()});
+
 })();
