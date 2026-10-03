@@ -346,6 +346,8 @@ body.cursor-hover .floating-cursor{width:46px;height:46px;background:rgba(43,139
 @keyframes toastIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
 @media (pointer:fine){.btn,.pill,.card,.aud,.industry,.value,.metric,.quote,.year,.product-actions a{cursor:pointer}}
 @media (max-width:760px){
+  header .links.mobile-open{display:flex;position:absolute;top:64px;left:0;right:0;padding:16px;background:#fff;flex-direction:column;gap:4px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px rgba(9,27,49,.10)}
+  header .links.mobile-open a{padding:12px 4px}
   body:after{display:none}
   .hero-photo-card .image-caption{opacity:1;transform:none}
   .detail-tabs{top:60px;overflow:auto}
@@ -451,11 +453,45 @@ function productImageFor(p){
 }
 function visual(type,p){const key=p?productImageFor(p):(type==='printer'?'thermal_printer':type==='touch'?'touch_pos':type==='software'?'software_laptop':'billing_machine');return `<div class="real-visual"><img src="${IMG[key]}" alt="${p?escapeHTML(p.name):'Leartech product'}" loading="lazy"></div>`}
 function escapeHTML(v){return String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
-function productCard(p,compact=false){return `<article class="card prod-card"><div onclick="showPage('product')" style="cursor:pointer">${visual(p.type,p)}</div><div class="body"><span class="tag">${p.cat}</span><h3 style="margin-top:8px">${p.name}</h3><p>${p.desc}</p><div class="price">₹${p.price.toLocaleString('en-IN')}</div><div class="product-actions"><a class="btn outline" href="#product" data-page="product">View Details</a><a class="btn primary" href="#contact" data-page="contact">Quote</a></div></div></article>`}
+function productCard(p,compact=false){return `<article class="card prod-card" data-product-id="${p.id}"><div class="product-image-link" data-product-id="${p.id}" tabindex="0" role="button" aria-label="View ${escapeHTML(p.name)}">${visual(p.type,p)}</div><div class="body"><span class="tag">${escapeHTML(p.cat)}</span><h3 style="margin-top:8px">${escapeHTML(p.name)}</h3><p>${escapeHTML(p.desc)}</p><div class="price">₹${p.price.toLocaleString('en-IN')}</div><div class="product-actions"><a class="btn outline" href="#product" data-page="product" data-product-id="${p.id}">View Details</a><a class="btn primary" href="#contact" data-page="contact" data-product-id="${p.id}">Quote</a></div></div></article>`}
 function renderProducts(filter='All',sort='Featured'){
  let arr=[...products]; if(filter!=='All') arr=arr.filter(p=>p.cat===filter); if(sort==='Price: Low to High') arr.sort((a,b)=>a.price-b.price); if(sort==='Price: High to Low') arr.sort((a,b)=>b.price-a.price); document.getElementById('productsGrid').innerHTML=arr.map(productCard).join(''); document.getElementById('count').textContent=`(${arr.length})`; bindPageLinks();}
-function showPage(name){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const page=document.getElementById('page-'+name);page.classList.add('active');hydrateImages();document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('active',a.dataset.page===name));window.scrollTo({top:0,behavior:'smooth'});if(location.hash!==`#${name}`) history.replaceState(null,'',`#${name}`);setTimeout(()=>setupMotion(page),40)}
-function bindPageLinks(){document.querySelectorAll('[data-page]').forEach(a=>a.onclick=(e)=>{e.preventDefault();showPage(a.dataset.page)})}
+let currentProduct=products[0];
+function applyProductDetail(product){
+  if(!product)return;
+  currentProduct=product;
+  const page=document.getElementById('page-product');
+  page.querySelector('.breadcrumb').textContent=`Home › Products › ${product.cat} › ${product.name}`;
+  const heroImg=page.querySelector('.detail-photo');
+  if(heroImg){heroImg.src=IMG[productImageFor(product)];heroImg.alt=product.name;}
+  const title=page.querySelector('.detail-copy h1'); if(title) title.textContent=product.name;
+  const desc=page.querySelector('.detail-copy > p'); if(desc) desc.textContent=product.desc;
+  const price=page.querySelector('.bigprice'); if(price) price.textContent=`₹${product.price.toLocaleString('en-IN')}`;
+  const tag=page.querySelector('.detail-copy .tag'); if(tag) tag.textContent=product.cat==='Billing Machines'?'Bestseller':product.cat;
+}
+function showPage(name,productId){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page=document.getElementById('page-'+name);
+  if(!page)return;
+  if(name==='product' && productId) applyProductDetail(products.find(p=>p.id===productId));
+  page.classList.add('active');
+  hydrateImages();
+  document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('active',a.dataset.page===name));
+  document.querySelector('.links')?.classList.remove('mobile-open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(location.hash!==`#${name}`) history.replaceState(null,'',`#${name}`);
+  setTimeout(()=>setupMotion(page),40);
+}
+function bindPageLinks(){
+  document.querySelectorAll('[data-page]').forEach(a=>{
+    a.onclick=(e)=>{e.preventDefault();showPage(a.dataset.page,a.dataset.productId)}
+  });
+  document.querySelectorAll('.product-image-link').forEach(el=>{
+    const open=()=>showPage('product',el.dataset.productId);
+    el.onclick=open;
+    el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open();}}
+  });
+}
 
 function hydrateImages(){document.querySelectorAll('[data-asset]').forEach(img=>{const key=img.dataset.asset;if(IMG[key] && img.getAttribute('src') !== IMG[key]) img.src=IMG[key];});}
 function setupMotion(root=document){
@@ -471,15 +507,45 @@ function setupMotion(root=document){
  root.querySelectorAll('.reveal,.reveal-scale,.stagger').forEach(n=>{if(!n.classList.contains('is-visible'))window.__motionObserver.observe(n)});
  root.querySelectorAll('[data-count]').forEach(el=>{if(el.dataset.counted)return;el.dataset.counted='1';const target=Number(el.dataset.count);if(!Number.isFinite(target))return;const start=performance.now();const dur=1100;const tick=now=>{const p=Math.min(1,(now-start)/dur),e=1-Math.pow(1-p,3);el.textContent=Math.round(target*e).toLocaleString('en-IN')+(el.dataset.suffix||'');if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);});
 }
-function init(){hydrateImages();document.getElementById('year').textContent=new Date().getFullYear(); document.getElementById('homeProducts').innerHTML=products.slice(0,4).map(p=>productCard(p,true)).join(''); renderProducts(); bindPageLinks(); setupMotion(document.getElementById('page-home')); const hash=location.hash.slice(1); if(hash&&document.getElementById('page-'+hash)) showPage(hash);}
+function init(){
+  hydrateImages();
+  const year=document.getElementById('year'); if(year) year.textContent=new Date().getFullYear();
+  const home=document.getElementById('homeProducts'); if(home) home.innerHTML=products.slice(0,4).map(p=>productCard(p,true)).join('');
+  renderProducts();
+  bindPageLinks();
+  setupMotion(document.getElementById('page-home'));
+  const valid=['home','products','product','industries','software','support','about','contact'];
+  const hash=location.hash.slice(1);
+  if(valid.includes(hash)) showPage(hash);
+  window.addEventListener('hashchange',()=>{const next=location.hash.slice(1); if(valid.includes(next)) showPage(next)});
+}
 window.addEventListener('scroll',()=>document.querySelector('header')?.classList.toggle('scrolled',window.scrollY>12),{passive:true});
 window.addEventListener('mousemove',e=>{let g=document.querySelector('.floating-cursor');if(g){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px';}});
 window.addEventListener('DOMContentLoaded',()=>{const g=document.createElement('div');g.className='floating-cursor';document.body.prepend(g);document.body.classList.add('has-cursor-glow');});
 document.querySelectorAll('.tab[data-cat]').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('active'));t.classList.add('active');renderProducts(t.dataset.cat,document.getElementById('sort').value)}));
 document.getElementById('sort').addEventListener('change',()=>{const a=document.querySelector('.tab[data-cat].active');renderProducts(a?a.dataset.cat:'All',document.getElementById('sort').value)});
-document.querySelectorAll('.catfilter').forEach(cb=>cb.addEventListener('change',()=>{const selected=[...document.querySelectorAll('.catfilter:checked')].map(x=>x.value); if(selected.length){document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('active'));document.getElementById('productsGrid').innerHTML=products.filter(p=>selected.includes(p.cat)).map(productCard).join('');document.getElementById('count').textContent=`(${products.filter(p=>selected.includes(p.cat)).length})`;bindPageLinks()}else renderProducts()}));
-document.getElementById('leadForm').addEventListener('submit',e=>{e.preventDefault();const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),business=document.getElementById('business').value,need=document.getElementById('need').value.trim()||'Please advise on the right billing setup.';const msg=`Hi Leartech, I would like a billing/POS enquiry.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ABusiness: ${encodeURIComponent(business)}%0ARequirement: ${encodeURIComponent(need)}`;document.getElementById('notice').classList.add('show');window.open(`https://wa.me/918904997113?text=${msg}`,'_blank')});
-document.getElementById('menu').addEventListener('click',()=>{const n=document.querySelector('.links');n.style.display=n.style.display==='flex'?'none':'flex';n.style.position='absolute';n.style.top='64px';n.style.left='0';n.style.right='0';n.style.padding='16px';n.style.background='#fff';n.style.flexDirection='column';n.style.borderBottom='1px solid var(--line)'});
+document.querySelectorAll('.catfilter').forEach(cb=>cb.addEventListener('change',()=>{
+  const selected=[...document.querySelectorAll('.catfilter:checked')].map(x=>x.value);
+  if(selected.length){
+    document.querySelectorAll('.tab[data-cat]').forEach(x=>x.classList.remove('active'));
+    const filtered=products.filter(p=>selected.includes(p.cat));
+    document.getElementById('productsGrid').innerHTML=filtered.map(productCard).join('');
+    document.getElementById('count').textContent=`(${filtered.length})`;
+    bindPageLinks();
+  }else renderProducts();
+}));
+document.getElementById('leadForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
+  const business=document.getElementById('business').value;
+  const need=document.getElementById('need').value.trim()||'Please advise on the right billing setup.';
+  const msg=`Hi Leartech, I would like a billing/POS enquiry.\n\nName: ${name}\nPhone: ${phone}\nBusiness: ${business}\nRequirement: ${need}`;
+  const url=`https://wa.me/918904997113?text=${encodeURIComponent(msg)}`;
+  document.getElementById('notice').classList.add('show');
+  window.location.assign(url);
+});
+document.getElementById('menu').addEventListener('click',()=>document.querySelector('.links')?.classList.toggle('mobile-open'));
 init();
 
 // Premium interaction helpers
