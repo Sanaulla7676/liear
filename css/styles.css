@@ -882,3 +882,144 @@ body.cursor-hover .floating-cursor{width:46px;height:46px;background:rgba(43,139
   #page-home .hero-years-overlay strong{font-size:18px}
   #page-home .hero-years-overlay span{font-size:8px}
 }
+
+/* === CLEAN HOME HERO / PREMIUM INTERACTIONS === */
+#page-home .hero-reference{
+  padding:0;
+  background:#f6faff;
+}
+#page-home .hero-reference-wrap{
+  position:relative;
+  width:100%;
+  max-width:1672px;
+  height:min(610px,calc(100vh - 72px));
+  min-height:500px;
+  margin:0 auto;
+  overflow:hidden;
+  background:#f7fbff;
+  isolation:isolate;
+}
+#page-home .hero-reference-art{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center center;
+  will-change:transform;
+  transform-origin:center center;
+}
+#page-home .hero-hotspot-quote,
+#page-home .hero-hotspot-whatsapp{position:absolute;z-index:12}
+#page-home .hero-hotspot-quote{
+  left:3.2%;
+  bottom:27%;
+  width:15%;
+  height:12%;
+}
+#page-home .hero-hotspot-quote a,
+#page-home .hero-whatsapp-hotspot{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:18px;
+}
+#page-home .hero-hotspot-quote a:focus-visible,
+#page-home .hero-whatsapp-hotspot:focus-visible{
+  outline:3px solid rgba(18,104,232,.85);
+  outline-offset:4px;
+}
+#page-home .hero-whatsapp-hotspot{
+  position:absolute;
+  z-index:12;
+  left:19.2%;
+  bottom:8%;
+  width:19.5%;
+  height:14.5%;
+  cursor:pointer;
+}
+#page-home .hero-whatsapp-hotspot:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  box-shadow:0 0 0 0 rgba(22,201,100,.42);
+  animation:whatsappPulse 2.8s ease-out infinite;
+  pointer-events:none;
+}
+#page-home .hero-whatsapp-hotspot:hover:before{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border-radius:14px;
+  background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.22) 48%,transparent 70%);
+  background-size:220% 100%;
+  animation:buttonShine 1.1s ease forwards;
+  pointer-events:none;
+}
+@keyframes whatsappPulse{
+  0%,55%,100%{box-shadow:0 0 0 0 rgba(22,201,100,0)}
+  20%{box-shadow:0 0 0 8px rgba(22,201,100,.18)}
+}
+@keyframes buttonShine{from{background-position:140% 0}to{background-position:-40% 0}}
+.scroll-progress{
+  position:fixed;
+  z-index:100;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  pointer-events:none;
+  background:linear-gradient(90deg,var(--blue) 0%,#4f9dff 100%);
+  transform:scaleX(calc(var(--scroll-progress,0) / 100));
+  transform-origin:left center;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(28px);
+  transition:opacity .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0s),transform .72s cubic-bezier(.22,1,.36,1) var(--reveal-delay,0s);
+}
+.reveal.is-visible{opacity:1;transform:none}
+.stagger > *{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .58s cubic-bezier(.22,1,.36,1) var(--item-delay,0s),transform .58s cubic-bezier(.22,1,.36,1) var(--item-delay,0s);
+}
+.stagger.is-visible > *,.is-visible.stagger > *{opacity:1;transform:none}
+.motion-hover{transform:translateY(-2px)!important}
+.card:not(.reference-prod-card), .aud, .industry, .metric, .quote{
+  transform:translate3d(calc(var(--mx,0) * 7px),calc(var(--my,0) * 7px),0);
+  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease,border-color .25s ease;
+  will-change:transform;
+}
+header.scrolled{
+  box-shadow:0 12px 35px rgba(8,29,52,.08);
+}
+@media(max-width:760px){
+  #page-home .hero-reference-wrap{
+    height:auto;
+    min-height:0;
+    aspect-ratio:1.72/1;
+  }
+  #page-home .hero-whatsapp-hotspot{
+    left:19%;
+    bottom:6.5%;
+    width:39%;
+    height:15%;
+  }
+  #page-home .hero-hotspot-quote{
+    left:3%;
+    bottom:29%;
+    width:19%;
+    height:13%;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #page-home .hero-reference-art{transform:none!important}
+  #page-home .hero-whatsapp-hotspot:after,
+  #page-home .hero-whatsapp-hotspot:hover:before{animation:none!important}
+  .scroll-progress{display:none}
+  .reveal,.stagger > *,.card:not(.reference-prod-card),.aud,.industry,.metric,.quote{
+    transition:none!important;
+    transform:none!important;
+  }
+}
