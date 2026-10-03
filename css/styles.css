@@ -1274,3 +1274,24 @@ header.scrolled{
 .float .wa:before,.float .call:before{display:none!important;content:none!important}
 .float .icon-svg{width:24px!important;height:24px!important;display:block!important;fill:currentColor!important}
 .float .wa .icon-svg{color:#fff}.float .call .icon-svg{color:#fff}
+
+/* 2026-10-03 UX hardening */
+#page-home .hero-reference{padding:0!important;background:#fff!important}
+#page-home .hero-reference-wrap{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:calc(100svh - 72px);min-height:620px;overflow:hidden;background:#eef4fa}
+#page-home .hero-reference-art{position:absolute!important;inset:0;width:100%!important;height:100%!important;max-width:none!important;min-height:100%!important;object-fit:cover!important;object-position:center center!important;display:block!important;transform:none!important}
+#page-home .hero-white-mask{position:absolute;left:0;right:0;bottom:0;height:20%;z-index:6;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.98) 72%,#fff 100%);pointer-events:none}
+#page-home .hero-quick-actions{position:absolute;left:50%;bottom:25%;transform:translateX(-50%);z-index:12;display:flex;gap:12px;align-items:center}
+#page-home .hero-quick-btn{display:inline-flex!important;align-items:center;justify-content:center;gap:9px;min-width:150px;height:48px;padding:0 18px;border:1px solid rgba(255,255,255,.82);border-radius:14px;background:rgba(255,255,255,.96);box-shadow:0 12px 28px rgba(8,35,67,.16);color:#10263e!important;font:800 12px/1 Arial,sans-serif;text-decoration:none;backdrop-filter:blur(10px)}
+#page-home .hero-quick-btn .contact-icon{display:grid;place-items:center;width:22px;height:22px;font-size:14px;font-weight:900;line-height:1;border-radius:50%}
+#page-home .contact-icon-call{background:#1268e8;color:#fff}.contact-icon-wa{background:#25d366;color:#fff}
+.float .contact-icon{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;color:#fff;font-size:16px;font-weight:900;line-height:1}.float .wa .contact-icon{background:#25d366}.float .call .contact-icon{background:#1268e8}
+@media(max-width:760px){#page-home .hero-reference-wrap{height:auto;min-height:0;aspect-ratio:16/9}#page-home .hero-reference-art{height:100%!important;object-fit:cover!important}#page-home .hero-white-mask{height:24%}#page-home .hero-quick-actions{bottom:18%;gap:8px;width:92%;justify-content:center}#page-home .hero-quick-btn{min-width:0;flex:0 1 150px;height:42px;padding:0 12px;font-size:10px}}
+.industry-visual-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px!important}
+#industryCards .industry-visual-card{display:block!important;visibility:visible!important;opacity:1!important;overflow:hidden;border:1px solid #dfe8f2;border-radius:22px;background:#fff;box-shadow:0 16px 40px rgba(12,39,68,.08)}
+#industryCards .industry-visual-media{position:relative!important;height:320px!important;min-height:320px!important;background:#edf4fa!important;overflow:hidden!important}
+#industryCards .industry-photo{display:block!important;width:100%!important;height:100%!important;min-height:100%!important;object-fit:cover!important;object-position:center!important;image-rendering:auto!important}
+#industryCards .industry-visual-body{padding:20px!important}
+#industryCards .industry-visual-body h3{font-size:20px!important;line-height:1.15!important;margin:0 0 8px!important}
+#industryCards .industry-visual-body p{font-size:13px!important;line-height:1.55!important;color:#687a8f!important}
+@media(max-width:980px){.industry-visual-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}#industryCards .industry-visual-media{height:280px!important;min-height:280px!important}}
+@media(max-width:620px){.industry-visual-grid{grid-template-columns:1fr!important}#industryCards .industry-visual-media{height:250px!important;min-height:250px!important}}
