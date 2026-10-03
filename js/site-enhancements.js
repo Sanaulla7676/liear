@@ -323,6 +323,167 @@
     if(html) footer.insertAdjacentHTML("beforebegin",html);
   }
 
+
+  const PAGE_FEATURES = {
+    home: [
+      ["Sticky navigation","Keeps primary pages and enquiry access close at hand while scrolling."],
+      ["Hero CTA controls","Visible Call and WhatsApp controls sit directly over the artwork CTA positions."],
+      ["Responsive hero scaling","The hero preserves the artwork composition across desktop and mobile widths."],
+      ["Product preview grid","The home page surfaces key products without forcing users into the catalogue first."],
+      ["Industry preview cards","Business types are introduced through visual cards with direct enquiry paths."],
+      ["Business detail section","The listed Bengaluru location, hours and product focus are surfaced on the home page."],
+      ["Scroll reveal","New content blocks appear progressively as they enter the viewport."],
+      ["Pointer depth","Feature cards react subtly to pointer movement on supported devices."],
+      ["Reduced-motion support","People who request reduced motion are not forced through decorative animation."],
+      ["Direct enquiry routes","Call, WhatsApp and quote links are available from high-intent areas."],
+      ["FAQ content","Common product and setup questions are answered without requiring another page."],
+      ["Local business context","The home page explains where the business is located and what it handles."],
+      ["Counter workflow explainer","Billing is explained as a process rather than only as a product category."],
+      ["Hardware stack explanation","Printers, scanners, POS and cash handling are described as connected components."],
+      ["Software relationship","The role of billing software is explained alongside physical counter hardware."],
+      ["Buying guidance","Visitors get practical criteria before they start comparing individual products."]
+    ],
+    products: [
+      ["Product search","Search the catalogue by product name or category."],
+      ["Category tabs","Filter products by the available catalogue groups."],
+      ["Sort controls","Change the presentation order for faster scanning."],
+      ["Quote cart","Collect multiple products before sending one WhatsApp enquiry."],
+      ["Four-image galleries","Product cards support multiple views where gallery assets exist."],
+      ["Product detail panel","Compare a selected product without immediately leaving the catalogue."],
+      ["Standalone product page","Individual products have dedicated detail routes."],
+      ["Buy Now flow","Add a chosen product to the quote list from the catalogue."],
+      ["WhatsApp quotation","Send selected products and quantities through WhatsApp."],
+      ["Responsive product grid","The catalogue adapts to tablet and mobile layouts."],
+      ["Buying guide","Explains what to consider for checkout, barcode, cash and complete setups."],
+      ["Product context links","Catalogue cards link naturally into more detailed product information."],
+      ["Breadcrumb structure","Users get a clearer understanding of where they are in the catalogue."],
+      ["Loading strategy","Product galleries load progressively to reduce the initial page burden."],
+      ["Accessible controls","Interactive controls include labels for keyboard and assistive-technology use."],
+      ["Natural product copy","Descriptions focus on business use instead of generic marketing filler."]
+    ],
+    product: [
+      ["Dedicated product URL","Individual products can be opened with a focused URL."],
+      ["Gallery navigation","Previous and next controls support product image exploration."],
+      ["Thumbnail rail","Multiple product views remain visible in a compact image strip."],
+      ["Quantity control","Customers can prepare a multi-unit enquiry from the product page."],
+      ["Quote action","A product can be sent to the quote flow without copying details manually."],
+      ["WhatsApp quote link","The selected product can be quoted directly through WhatsApp."],
+      ["Feature summary","Core product attributes are surfaced before deeper enquiry."],
+      ["Product category label","The page makes the product family explicit."],
+      ["Deployment guidance","The page explains counter placement and supporting equipment considerations."],
+      ["Compatibility thinking","Users are encouraged to consider the existing workflow around the device."],
+      ["Support context","The support path is connected to the product decision."],
+      ["Responsive detail layout","The product detail experience reorganizes for smaller screens."],
+      ["Keyboard-friendly controls","Gallery and quantity controls are interactive without requiring pointer input."],
+      ["SEO product schema","Product detail pages expose structured product information."],
+      ["Contextual navigation","Visitors can return to the catalogue without losing the product journey."]
+    ],
+    industries: [
+      ["Industry taxonomy","Business categories are organized around actual billing-led environments."],
+      ["Retail workflows","Retail use cases explain barcode, receipts and product lookup."],
+      ["Grocery workflows","High-volume item entry and counter speed are addressed."],
+      ["Food service workflows","Food counters are described around quick order and receipt flow."],
+      ["Fashion workflows","Product-rich catalogues and organized transactions are explained."],
+      ["Luxury retail context","The page covers product-led retail with structured customer transactions."],
+      ["Automotive workflows","Parts and service transactions receive their own business context."],
+      ["Electronics workflows","SKU-heavy product environments are explained."],
+      ["Hospitality context","Customer-facing billing workflows are described separately."],
+      ["Beauty services","Service-led billing use cases are covered."],
+      ["Visual industry cards","Original industry imagery is presented as the main visual layer."],
+      ["Direct enquiry links","Each industry card can route a visitor into a specific enquiry."],
+      ["Industry filters","Visitors can narrow the catalogue by business type."],
+      ["Business-fit matrix","A separate content layer explains why different counters need different setups."],
+      ["Industry copy depth","Each business group gets distinct explanatory content."],
+      ["Medical-free catalogue","Unrelated medical positioning has been removed from the active industry experience."]
+    ],
+    software: [
+      ["Billing workflow","Explains the path from product entry to completed transaction."],
+      ["Inventory module","Describes how stock visibility fits around billing."],
+      ["Product catalogue module","Explains product organization and pricing context."],
+      ["Customer module","Shows where customer records fit into daily operations."],
+      ["Reporting module","Explains why transaction data matters after the sale."],
+      ["Hardware integration","Positions software as part of the physical counter system."],
+      ["Live dashboard concept","The page visualizes the operational information a business owner reviews."],
+      ["Software pricing context","Starting price is separated from final configuration decisions."],
+      ["FAQ section","Answers common software buying questions."],
+      ["Workflow sequence","Capture, calculate, complete and reflect are explained as a connected process."],
+      ["Retail-first positioning","The page keeps billing use cases central to the product story."],
+      ["Operational language","Copy focuses on actual business tasks instead of vague technology claims."],
+      ["Responsive dashboard","The software visual is designed to remain usable across viewport sizes."],
+      ["SEO software metadata","Page titles and descriptions target relevant billing software intent."],
+      ["Contact handoff","Visitors can move from software research to a setup discussion."]
+    ],
+    support: [
+      ["Support command center","The page organizes support around a clear service journey."],
+      ["Call support","One-tap phone access is available for support enquiries."],
+      ["WhatsApp support","Customers can send details, photos and issue descriptions quickly."],
+      ["Email support","Longer technical explanations can be sent through email."],
+      ["Support FAQ","Common troubleshooting questions are answered in expandable panels."],
+      ["Issue categorization","Visitors can identify the hardware or software area affected."],
+      ["Support request form","A structured form prepares a clearer WhatsApp request."],
+      ["Diagnostic checklist","The page explains what information makes diagnosis faster."],
+      ["Installation guidance","Setup and configuration are explained as part of the service flow."],
+      ["Hardware support coverage","POS, printers, scanners and cash-handling devices are included."],
+      ["Software support coverage","Billing and operational workflow questions have dedicated context."],
+      ["Four-step resolution flow","Understand, diagnose, resolve and follow-through are separated."],
+      ["Visual support explainer","The service page uses a custom support illustration."],
+      ["Action-oriented copy","Instructions tell visitors what to check and what to send."],
+      ["Reduced support friction","The enquiry format reduces repeated back-and-forth."]
+    ],
+    about: [
+      ["Company positioning","The company story is tied to actual billing and POS work."],
+      ["Product relationship","Hardware categories are explained as part of the wider offering."],
+      ["Software relationship","Software is presented as the operational layer around hardware."],
+      ["Support relationship","Service is shown as part of the customer journey."],
+      ["Industry context","The company page links its offering to real operating environments."],
+      ["Local presence","The Bengaluru location is surfaced as part of the business identity."],
+      ["Practical buying journey","Visitors see the path from business need to configuration."],
+      ["Clear information architecture","About content connects naturally to Products, Industries and Software."],
+      ["Natural copy","The page avoids exaggerated corporate claims."],
+      ["Accessible navigation","Core links remain reachable through standard navigation."],
+      ["Responsive sections","Company content adapts to smaller screens."],
+      ["Search-friendly metadata","About page metadata is aligned to the business offering."]
+    ],
+    contact: [
+      ["Exact listed address","The Chandra Layout location is shown in full rather than only the locality."],
+      ["SBI Bank landmark","The nearby landmark is included to make the address easier to recognize."],
+      ["Live Google map","The contact page can show a map centered on the listed business location."],
+      ["Directions link","Visitors can open the same location in Google Maps for navigation."],
+      ["One-tap call","The listed phone number can be called directly from the page."],
+      ["WhatsApp enquiry","Visitors can start a WhatsApp conversation without copying the number."],
+      ["Business hours","The listed Monday-to-Saturday opening window is shown explicitly."],
+      ["Structured enquiry form","Business type and requirement fields collect useful context."],
+      ["Requirement guidance","The page explains what information helps create a better first response."],
+      ["Counter-count prompt","Visitors can include the number of billing points they operate."],
+      ["Existing-system prompt","Replacement or expansion enquiries can describe the current setup."],
+      ["Product-category context","The contact page references the actual product families offered."],
+      ["Local SEO signals","Address, locality, hours and business category are exposed in structured data."],
+      ["Map accessibility label","The embedded map receives a descriptive title."],
+      ["Responsive contact layout","Contact content and map adapt to mobile screens."]
+    ]
+  };
+
+  function addFeatureIndex(){
+    if(document.querySelector(".fx-feature-index")) return;
+    const list=PAGE_FEATURES[pageKey];
+    if(!list) return;
+    const footer=document.querySelector("footer");
+    if(!footer) return;
+    const offset=list.map((item,i)=>'<article class="fx-feature-index-card"><span class="fx-fi-no">'+String(i+1).padStart(2,"0")+'</span><strong>'+item[0]+'</strong><p>'+item[1]+'</p></article>').join("");
+    const total=Object.values(PAGE_FEATURES).reduce((n,a)=>n+a.length,0);
+    footer.insertAdjacentHTML("beforebegin",'<section class="fx-section fx-feature-index"><div class="container"><div class="fx-index-head"><div><div class="fx-kicker">SITE EXPERIENCE INDEX</div><h2>Built-in details that make the site easier to use.</h2></div><span class="fx-index-count">'+total+' documented refinements across the site</span></div><div class="fx-feature-index-grid">'+offset+"</div></div></section>");
+  }
+
+  function addContactMap(){
+    if(pageKey!=="contact" || document.querySelector(".fx-map-shell")) return;
+    const footer=document.querySelector("footer");
+    if(!footer) return;
+    const anchor=document.querySelector("#page-contact .map");
+    const map='<div class="fx-map-shell"><iframe title="Leartech Automation Ventures exact listed business location in Chandra Layout, Bengaluru" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=No.40(S),SBI%20Bank%20Opp%20Road,2nd%20A%20Main,1st%20Stage,2nd%20Phase,Chandra%20Layout,Bengaluru%20560040&output=embed"></iframe><div class="fx-map-caption"><strong>No. 40(S), SBI Bank Opp Road, 2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040</strong><span>Use the directions link above the map for turn-by-turn navigation.</span></div></div>';
+    if(anchor){ anchor.outerHTML=map; }
+    else { footer.insertAdjacentHTML("beforebegin",map); }
+  }
+
   function addSkipLink(){
     if(document.querySelector(".fx-skip")) return;
     const a=document.createElement("a");
@@ -476,6 +637,8 @@
     appendPageEnhancement();
     addRichContent();
     addBusinessProfileSection();
+    addContactMap();
+    addFeatureIndex();
     addSkipLink();
     addSEO();
     normalizeFloatingButtons();
