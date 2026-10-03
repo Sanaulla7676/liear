@@ -556,3 +556,91 @@ body.cursor-hover .floating-cursor{width:46px;height:46px;background:rgba(43,139
   .standalone-detail-panel .detail-media-shell{height:350px;margin:0 12px}
   .standalone-detail-panel .detail-info{padding:0 15px}
 }
+
+/* === PRODUCT CTA VISIBILITY / CLEAN DETAIL FIX === */
+.reference-prod-card .product-actions,
+.reference-prod-card .product-actions .btn{
+  min-width:0!important;
+  width:100%;
+  max-width:100%;
+}
+.reference-prod-card .product-actions .btn{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:10px;
+  letter-spacing:0;
+}
+.reference-prod-card .product-actions{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+}
+.reference-prod-card .prod-card-body{
+  min-width:0;
+}
+@media(max-width:1200px) and (min-width:701px){
+  .reference-products-grid{gap:10px!important}
+  .reference-prod-card .prod-card-body{padding:9px}
+  .reference-prod-card .product-title{font-size:10px}
+  .reference-prod-card .product-rating{margin:4px 0 7px}
+  .reference-prod-card .product-actions .btn{font-size:9px;padding:7px 4px}
+}
+@media(min-width:1051px){
+  .standalone-detail-panel{
+    display:grid;
+    grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);
+    gap:0 18px;
+    padding:12px 0 24px;
+    align-items:start;
+  }
+  .standalone-detail-panel .detail-breadcrumb{
+    grid-column:1/-1;
+    padding:0 24px 12px;
+  }
+  .standalone-detail-panel .detail-media-shell{
+    grid-column:1;
+    grid-row:2;
+    height:420px;
+    margin:0 0 0 24px;
+  }
+  .standalone-detail-panel .detail-thumbs{
+    grid-column:1;
+    grid-row:3;
+    padding:9px 0 0 24px;
+  }
+  .standalone-detail-panel .detail-info{
+    grid-column:2;
+    grid-row:2/4;
+    padding:4px 24px 0 0;
+    min-width:0;
+  }
+  .standalone-detail-panel .detail-info h2{
+    font-size:38px;
+  }
+  .standalone-detail-panel .detail-features{
+    margin-bottom:14px;
+  }
+  .standalone-detail-panel .detail-purchase{
+    margin-top:4px;
+  }
+}
+@media(max-width:1050px){
+  .standalone-detail-panel .detail-media-shell{
+    height:390px;
+    margin:0 18px;
+  }
+  .standalone-detail-panel .detail-info{
+    padding:0 18px;
+  }
+}
+@media(max-width:700px){
+  .reference-prod-card .product-actions .btn{
+    font-size:8px;
+    padding:6px 3px;
+  }
+  .standalone-detail-panel .detail-media-shell{
+    height:320px;
+    margin:0 12px;
+  }
+  .standalone-detail-panel .detail-info{
+    padding:0 13px;
+  }
+}
