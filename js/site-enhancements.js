@@ -215,6 +215,114 @@
         </div>
       </section>`);
   }
+  function addRichContent(){
+    if(document.querySelector(".fx-rich-content")) return;
+    const footer=document.querySelector("footer");
+    if(!footer) return;
+
+    const blocks={
+      home:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">WHY THE SETUP MATTERS</div>
+            <div class="fx-heading-row"><div><h2>Billing equipment should fit the <strong>business workflow</strong>, not the other way around.</h2><p>A busy counter depends on small details working together: item entry, barcode scanning, payment handling, receipt printing, stock updates and the operator's ability to move through a sale without unnecessary steps.</p></div></div>
+            <div class="fx-rich-copy">
+              <p><strong>Retail counters</strong> often need a dependable combination of billing software, barcode scanning, thermal printing and cash handling. <strong>Food businesses</strong> generally need speed, simple item selection and reliable receipt output. <strong>Service businesses</strong> benefit from a clean way to capture customer details and transaction history. Leartech's catalogue is structured around these practical differences.</p>
+              <p>When choosing a system, consider the number of billing points, daily transaction volume, product count, receipt or label requirements, available counter space and the level of operator training required. The right configuration is the one that removes friction from the actual working day.</p>
+              <p>For businesses in Bengaluru, the Leartech location in <strong>Chandra Layout</strong> provides a place to discuss the product mix, software requirements, accessories and service needs before committing to a complete setup.</p>
+            </div>
+          </div>
+        </section>`,
+      products:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">PRODUCT SELECTION</div>
+            <div class="fx-heading-row"><div><h2>Compare the parts of a <strong>complete counter</strong>.</h2><p>A printer is useful only when it fits the receipt format, a scanner is useful only when it matches the product workflow, and a POS system is useful when the operator can actually use it quickly.</p></div></div>
+            <div class="fx-rich-copy">
+              <p><strong>Billing machines</strong> can be the centre of a compact counter setup where product entry, transaction processing and receipt printing need to happen in one place. <strong>Touch screen POS systems</strong> are useful where a visual product interface and faster navigation are important.</p>
+              <p><strong>Thermal printers</strong> handle everyday receipt or label output, while <strong>barcode scanners</strong> reduce manual item entry. <strong>Cash drawers</strong> and currency-counting equipment add a dedicated cash-handling layer when the business needs tighter control at the counter.</p>
+              <p>Before ordering, confirm the required interfaces, media size, physical footprint, number of counters and software workflow. A short requirements discussion can prevent buying individual devices that later need to be replaced because they do not fit together.</p>
+            </div>
+          </div>
+        </section>`,
+      product:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">BEFORE YOU ORDER</div>
+            <div class="fx-heading-row"><div><h2>Understand the product in its <strong>working environment</strong>.</h2><p>The product image shows the device. The real decision is whether that device makes sense in your counter, software and day-to-day operating conditions.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>Check the <strong>connection method</strong>, placement, power requirement, paper or label media, expected usage and the companion devices that will sit beside it. These details affect installation and operator experience more than a product name alone.</p>
+              <p>For a new counter, it is useful to think in layers: <strong>billing interface</strong>, <strong>item identification</strong>, <strong>receipt output</strong>, <strong>cash handling</strong> and <strong>software workflow</strong>. For an existing counter, the main question is usually compatibility with the devices already in use.</p>
+              <p>Use the enquiry route for the exact product configuration, availability and commercial quotation instead of relying on a generic online price that may not represent the final setup.</p>
+            </div>
+          </div>
+        </section>`,
+      industries:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">INDUSTRY-SPECIFIC WORKFLOWS</div>
+            <div class="fx-heading-row"><div><h2>Different businesses create different <strong>billing problems</strong>.</h2><p>Good equipment selection starts with how the customer order enters the business and what must happen before the transaction is complete.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>In <strong>grocery and retail</strong>, barcode scanning and fast product lookup can reduce repetitive manual entry. In <strong>fashion</strong>, the product catalogue and transaction workflow must cope with a broader range of items and customer choices. In <strong>electronics</strong>, product codes and organised billing records can become especially important as SKU count grows.</p>
+              <p>For <strong>food service and hospitality</strong>, speed at the point of sale matters because the billing process sits inside a customer-facing service experience. <strong>Automotive businesses</strong> may need structured parts and service billing, while <strong>salons and beauty businesses</strong> generally need service-led billing and customer-focused records.</p>
+              <p>The common requirement is not a single “best” device. It is a <strong>coherent system</strong> where the hardware, software and operating procedure support the work staff actually perform every day.</p>
+            </div>
+          </div>
+        </section>`,
+      software:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">SOFTWARE IN PRACTICE</div>
+            <div class="fx-heading-row"><div><h2>Turn transactions into a <strong>repeatable daily process</strong>.</h2><p>Billing software becomes valuable when the same workflow works reliably for every operator, every counter and every ordinary business day.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>A useful billing workflow starts with a product or service, applies the relevant quantity and pricing logic, records the customer or transaction information required by the business, and completes payment with a clear receipt or transaction record.</p>
+              <p>Behind the counter, <strong>inventory</strong> and <strong>reporting</strong> turn individual sales into operational information. Product quantities, transaction history and sales summaries can help a business owner understand what happened after the customer has left the counter.</p>
+              <p>Software should also be considered alongside the hardware. A fast interface loses its advantage when the scanner, printer, network connection or workstation creates unnecessary delays. That is why the product and software decisions should be evaluated together.</p>
+            </div>
+          </div>
+        </section>`,
+      support:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">SERVICE GUIDANCE</div>
+            <div class="fx-heading-row"><div><h2>Good support begins with the <strong>right information</strong>.</h2><p>Most avoidable support delays happen because the issue arrives without the product name, symptom, error message or enough context to reproduce the problem.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>When a <strong>thermal printer</strong> is not printing, describe whether the device has power, whether the paper feeds, whether the indicator lights are active and whether the problem is limited to one application. When a <strong>barcode scanner</strong> fails, mention the connection type and whether the device is detected by the computer.</p>
+              <p>For <strong>billing software</strong>, useful information includes the screen where the issue appears, the action that triggers it and any visible error message. A clear photograph or short video can be more useful than a long description when the problem is visual.</p>
+              <p>Support requests should end with a clear next action: a setting to change, a test to perform, a configuration to check or a service step to schedule. That keeps the process measurable and prevents repeated explanations of the same problem.</p>
+            </div>
+          </div>
+        </section>`,
+      about:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">HOW LEARTECH FITS TOGETHER</div>
+            <div class="fx-heading-row"><div><h2>Products, software and support form one <strong>customer journey</strong>.</h2><p>The value of a billing system does not come from one box. It comes from how the components behave together after installation.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>Leartech Automation Ventures is positioned around <strong>billing machines</strong>, <strong>thermal printers</strong>, <strong>touch screen billing machines</strong>, <strong>billing software</strong>, barcode equipment and related counter hardware. That combination gives businesses a single place to discuss the equipment and workflow rather than sourcing every component separately.</p>
+              <p>The practical buying process starts with the business type and counter requirements, moves into product selection and software fit, and then continues into installation, training and service. A clear process makes it easier for a business owner to understand what is being purchased and why each component is included.</p>
+              <p>For customers visiting in Bengaluru, the listed Chandra Layout location provides a local point for enquiries around the billing and POS range.</p>
+            </div>
+          </div>
+        </section>`,
+      contact:`
+        <section class="fx-section fx-rich-content">
+          <div class="container">
+            <div class="fx-kicker">CONTACT WITH CONTEXT</div>
+            <div class="fx-heading-row"><div><h2>A better enquiry starts with <strong>specific details</strong>.</h2><p>Instead of sending “price?”, share the business type, number of counters, products or services you bill, and the hardware or software you are considering.</p></div></div>
+            <div class="fx-rich-copy">
+              <p>For a new installation, include the approximate <strong>number of counters</strong>, whether barcode scanning is required, whether you need receipts or labels, and whether cash-handling equipment is part of the requirement. This gives the team enough context to discuss a complete configuration.</p>
+              <p>For an existing system, explain what is already installed and what you want to replace, add or repair. A photo of the current setup can make the first response much more useful because it shows the available space, device type and physical connections.</p>
+              <p>The listed business location is in <strong>Chandra Layout, Bengaluru</strong>, opposite SBI Bank on 2nd A Main. Use the directions link on this page to navigate to the exact listed address before visiting.</p>
+            </div>
+          </div>
+        </section>`
+    };
+
+    const html=blocks[pageKey];
+    if(html) footer.insertAdjacentHTML("beforebegin",html);
+  }
+
   function addSkipLink(){
     if(document.querySelector(".fx-skip")) return;
     const a=document.createElement("a");
@@ -366,6 +474,7 @@
 
   document.addEventListener("DOMContentLoaded",()=>{
     appendPageEnhancement();
+    addRichContent();
     addBusinessProfileSection();
     addSkipLink();
     addSEO();
