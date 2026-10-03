@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sanaulla7676.github.io/liear/sitemap.xml
