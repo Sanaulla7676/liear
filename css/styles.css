@@ -1403,3 +1403,46 @@ header.scrolled{
 .fx-map-caption strong{font-size:14px;color:#16314d}.fx-map-caption span{font-size:12px;color:#718399}
 @media(max-width:980px){.fx-feature-index .fx-feature-index-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.fx-map-caption{display:block}.fx-map-caption span{display:block;margin-top:6px}}
 @media(max-width:620px){.fx-feature-index .fx-feature-index-grid{grid-template-columns:1fr}.fx-map-shell iframe{height:340px}}
+
+/* 2026-10-04 premium page-specific design language */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+body[data-page="home"]{font-family:"DM Sans",sans-serif}body[data-page="home"] h1,body[data-page="home"] h2{font-family:"Space Grotesk",sans-serif}
+body[data-page="products"]{font-family:"Manrope",sans-serif}body[data-page="products"] h1,body[data-page="products"] h2{font-family:"Sora",sans-serif}
+body[data-page="product"]{font-family:"Sora",sans-serif}body[data-page="product"] h1,body[data-page="product"] h2{font-family:"Manrope",sans-serif}
+body[data-page="industries"]{font-family:"DM Sans",sans-serif}body[data-page="industries"] h1,body[data-page="industries"] h2{font-family:"Montserrat",sans-serif}
+body[data-page="software"]{font-family:"IBM Plex Sans",sans-serif}body[data-page="software"] h1,body[data-page="software"] h2{font-family:"Outfit",sans-serif}
+body[data-page="support"]{font-family:"Outfit",sans-serif}body[data-page="support"] h1,body[data-page="support"] h2{font-family:"Plus Jakarta Sans",sans-serif}
+body[data-page="about"]{font-family:"Plus Jakarta Sans",sans-serif}body[data-page="about"] h1,body[data-page="about"] h2{font-family:"Space Grotesk",sans-serif}
+body[data-page="contact"]{font-family:"Montserrat",sans-serif}body[data-page="contact"] h1,body[data-page="contact"] h2{font-family:"Sora",sans-serif}
+/* Hero CTA: visible, premium, artwork-aligned */
+#page-home .hero-reference-wrap{isolation:isolate}
+#page-home .hero-quick-actions{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;z-index:80!important;pointer-events:none!important}
+#page-home .hero-quick-btn{pointer-events:auto!important;overflow:hidden!important}
+#page-home .hero-quick-btn:after{content:"";position:absolute;inset:0;transform:translateX(-120%);background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.42) 48%,transparent 72%);transition:transform .65s ease;pointer-events:none}
+#page-home .hero-quick-btn:hover:after{transform:translateX(120%)}
+#page-home .hero-quick-call{box-shadow:0 16px 35px rgba(18,104,232,.34),inset 0 1px 0 rgba(255,255,255,.2)!important}
+#page-home .hero-quick-wa{box-shadow:0 14px 32px rgba(13,40,67,.18),inset 0 1px 0 rgba(255,255,255,.8)!important}
+#page-home .hero-quick-btn .contact-icon{position:relative;z-index:2}.fx-heading-row h2 strong{color:var(--blue)}
+/* distinct page motion signatures */
+body[data-page="home"] .fx-card.fx-visible{animation:homeLift .7s cubic-bezier(.2,.8,.2,1) both}
+body[data-page="products"] .fx-card.fx-visible{animation:productSlide .65s cubic-bezier(.22,.8,.18,1) both}
+body[data-page="product"] .fx-card.fx-visible{animation:productSpin .75s cubic-bezier(.2,.9,.2,1) both}
+body[data-page="industries"] .fx-card.fx-visible{animation:industryReveal .72s cubic-bezier(.16,.85,.2,1) both}
+body[data-page="software"] .fx-card.fx-visible{animation:softRise .8s cubic-bezier(.18,.82,.24,1) both}
+body[data-page="support"] .fx-card.fx-visible{animation:supportPulse .78s cubic-bezier(.2,.86,.26,1) both}
+body[data-page="about"] .fx-card.fx-visible{animation:aboutFloat .74s cubic-bezier(.17,.84,.25,1) both}
+body[data-page="contact"] .fx-card.fx-visible{animation:contactScan .8s cubic-bezier(.18,.82,.24,1) both}
+@keyframes homeLift{from{opacity:0;transform:translateY(34px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes productSlide{from{opacity:0;transform:translateX(-26px)}to{opacity:1;transform:translateX(0)}}
+@keyframes productSpin{from{opacity:0;transform:translateY(24px) rotateX(7deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+@keyframes industryReveal{from{opacity:0;transform:scale(.94) rotateY(-5deg)}to{opacity:1;transform:scale(1) rotateY(0)}}
+@keyframes softRise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes supportPulse{from{opacity:0;transform:translateX(22px) scale(.97)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes aboutFloat{from{opacity:0;transform:translateY(28px) rotate(-1deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes contactScan{from{opacity:0;transform:translateY(24px);filter:blur(3px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.fx-rich-content{background:linear-gradient(180deg,#fff 0%,#f7fbff 100%)}
+.fx-rich-copy{columns:1;max-width:1100px}.fx-rich-copy p{margin-bottom:18px}.fx-rich-copy p:last-child{margin-bottom:0}
+.fx-google-profile{display:inline-flex;align-items:center;gap:9px;margin-top:16px;padding:12px 16px;border-radius:13px;border:1px solid #dbe5ef;background:#fff;color:#16324e;font-size:12px;font-weight:900;box-shadow:0 9px 25px rgba(17,48,79,.06);transition:transform .25s ease,box-shadow .25s ease}
+.fx-google-profile:hover{transform:translateY(-3px);box-shadow:0 15px 34px rgba(17,48,79,.1)}.fx-google-g{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#fff;font-weight:900;color:#4285f4;border:1px solid #dce6f0}
+.fx-page-tools{position:fixed;right:18px;bottom:92px;z-index:75;display:flex;flex-direction:column;gap:8px}.fx-page-tool{width:42px;height:42px;border:1px solid #d9e4ef;border-radius:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);color:#17314d;display:grid;place-items:center;box-shadow:0 10px 28px rgba(10,39,70,.12);font-weight:900;font-size:12px;cursor:pointer;opacity:0;transform:translateY(12px);transition:all .25s ease}.fx-page-tool.visible{opacity:1;transform:translateY(0)}.fx-page-tool:hover{transform:translateY(-3px);border-color:#a9c7e6}.fx-reading-label{font-size:9px;letter-spacing:.08em;color:#66809a;writing-mode:vertical-rl;transform:rotate(180deg)}
+@media(prefers-reduced-motion:reduce){body[data-page] .fx-card.fx-visible{animation:none!important}}
