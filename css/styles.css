@@ -1455,3 +1455,27 @@ html body{font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smo
 .btn,.pill,.nav-cart,.catalog-tab,.industry-chip,.product-actions .btn{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease,filter .22s ease!important}
 .btn:hover,.pill:hover,.nav-cart:hover,.catalog-tab:hover,.industry-chip:hover,.product-actions .btn:hover{transform:translateY(-2px)}
 .btn:focus-visible,.pill:focus-visible,.nav-cart:focus-visible,.catalog-tab:focus-visible,.industry-chip:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid rgba(18,104,232,.28);outline-offset:3px}
+
+/* 2026-10-04 frictionless buying layer */
+.ux-quick-setup{position:relative;z-index:70}
+.ux-setup-trigger{position:fixed;right:22px;bottom:24px;display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.16);background:linear-gradient(135deg,#1268e8,#0b56c8);color:#fff;padding:12px 17px;border-radius:999px;font-size:12px;font-weight:800;box-shadow:0 15px 36px rgba(18,104,232,.28);cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.ux-setup-trigger:hover{transform:translateY(-3px);filter:saturate(1.08);box-shadow:0 20px 46px rgba(18,104,232,.34)}
+.ux-setup-icon{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18)}
+.ux-setup-backdrop{position:fixed;inset:0;background:rgba(5,18,33,.58);backdrop-filter:blur(8px);opacity:0;pointer-events:none;transition:opacity .25s ease}
+.ux-setup-dialog{position:fixed;left:50%;top:50%;transform:translate(-50%,-46%) scale(.96);width:min(520px,92vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid #dce7f1;border-radius:28px;padding:30px;box-shadow:0 35px 100px rgba(5,20,38,.32);opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s cubic-bezier(.2,.85,.2,1)}
+.ux-quick-setup.open .ux-setup-backdrop{opacity:1;pointer-events:auto}.ux-quick-setup.open .ux-setup-dialog{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.ux-setup-close{position:absolute;right:16px;top:14px;width:36px;height:36px;border:0;border-radius:50%;background:#f2f6fa;color:#17334d;font-size:22px;cursor:pointer}
+.ux-setup-kicker{font-size:9px;letter-spacing:.2em;font-weight:900;color:#1268e8;margin-bottom:9px}.ux-setup-dialog h2{font-size:34px;line-height:1.05;letter-spacing:-.04em;margin:0 42px 10px 0}.ux-setup-intro{font-size:13px;line-height:1.7;color:#687b91;margin:0 0 22px}
+.ux-stepper{display:grid;grid-template-columns:32px 1fr 32px 1fr 32px;align-items:center;gap:8px;margin:0 0 24px}.ux-stepper span{width:32px;height:32px;display:grid;place-items:center;border-radius:50%;border:1px solid #cad9e8;color:#7890a7;font-size:11px;font-weight:900;background:#fff}.ux-stepper span.active{color:#fff;border-color:#1268e8;background:#1268e8;box-shadow:0 0 0 5px rgba(18,104,232,.09)}.ux-stepper i{height:1px;background:#d7e2ed}
+.ux-setup-step{display:none}.ux-setup-step.active{display:grid;gap:16px}.ux-setup-step label{display:grid;gap:8px;font-size:11px;font-weight:800;color:#29425c}.ux-setup-step select,.ux-setup-step textarea{width:100%;border:1px solid #d7e3ee;border-radius:14px;background:#fbfdff;padding:13px 14px;color:#17334d;font-size:13px;outline:none}.ux-setup-step textarea{min-height:110px;resize:vertical}.ux-setup-step select:focus,.ux-setup-step textarea:focus{border-color:#8eb9ec;box-shadow:0 0 0 4px rgba(18,104,232,.08)}
+.ux-mobile-bar{display:none}
+@media(max-width:760px){
+ .ux-setup-trigger{right:12px;bottom:76px;padding:11px 14px;font-size:11px}
+ .ux-setup-dialog{padding:24px;border-radius:22px}
+ .ux-setup-dialog h2{font-size:29px}
+ .ux-mobile-bar{position:fixed;left:10px;right:10px;bottom:10px;z-index:76;display:grid;grid-template-columns:1fr 1.35fr 1fr;gap:5px;padding:6px;border:1px solid #d9e5ef;background:rgba(255,255,255,.94);backdrop-filter:blur(16px);border-radius:18px;box-shadow:0 18px 45px rgba(9,33,58,.18)}
+ .ux-mobile-bar a,.ux-mobile-bar button{min-height:42px;border:0;border-radius:13px;background:transparent;color:#17334d;font-size:10px;font-weight:900;display:grid;place-items:center;gap:2px;text-decoration:none;cursor:pointer}
+ .ux-mobile-bar a:nth-child(3){background:#25d366;color:#fff}.ux-mobile-bar button{background:#1268e8;color:#fff}.ux-mobile-bar span{font-size:15px;line-height:1}
+ .fx-page-tools{bottom:78px}
+}
+@media(prefers-reduced-motion:reduce){.ux-setup-dialog,.ux-setup-backdrop,.ux-setup-trigger{transition:none!important}}
