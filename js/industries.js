@@ -42,7 +42,14 @@
 
     document.querySelectorAll(".industry-photo").forEach(img=>{
       img.addEventListener("load",()=>img.classList.add("loaded"));
-      img.addEventListener("error",()=>img.classList.add("failed"));
+      img.addEventListener("error",()=>{
+        if(img.dataset.fallback && !img.dataset.fallbackUsed){
+          img.dataset.fallbackUsed="1";
+          img.src=img.dataset.fallback;
+          return;
+        }
+        img.classList.add("failed");
+      });
     });
     initMotion();
     applyFilter();
