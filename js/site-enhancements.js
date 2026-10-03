@@ -5,7 +5,8 @@
     name: "Leartech Automation Ventures",
     phone: "+918618605966",
     email: "info@leartech.in",
-    address: "No. 40(S), SBI Bank Opp. Road, 2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040",
+    address: "No. 40(S), SBI Bank Opp Road, 2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040",
+    googleProfileUrl: "https://share.google/BtJHUSVvmcNcuEB4e",
     siteUrl: (function(){
       const p = location.pathname.replace(/\\/g,"/");
       const base = p.endsWith("/") ? p : p.replace(/\/[^/]*$/, "/");
@@ -191,6 +192,17 @@
     footer.insertAdjacentHTML("beforebegin",cfg.html);
   }
 
+  function setPageTheme(){ document.body.dataset.page=pageKey; document.documentElement.dataset.page=pageKey; }
+
+  function addPageUtilities(){
+    if(document.querySelector(".fx-page-tools")) return;
+    const wrap=document.createElement("div"); wrap.className="fx-page-tools"; wrap.setAttribute("aria-label","Page tools");
+    wrap.innerHTML="<button type=\"button\" class=\"fx-page-tool\" data-top aria-label=\"Back to top\">↑</button><span class=\"fx-page-tool fx-reading-label visible\" aria-hidden=\"true\">READ</span>";
+    document.body.appendChild(wrap); const top=wrap.querySelector("[data-top]");
+    const onScroll=()=>top.classList.toggle("visible",window.scrollY>500); window.addEventListener("scroll",onScroll,{passive:true}); onScroll();
+    top.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+  }
+
   function addBusinessProfileSection(){
     if(document.querySelector(".fx-business-profile")) return;
     const footer=document.querySelector("footer");
@@ -204,7 +216,7 @@
               <h2 id="fx-business-title">Leartech in <strong>Chandra Layout, Bengaluru.</strong></h2>
               <p>For <strong>billing machines</strong>, <strong>thermal printers</strong>, <strong>billing software</strong> and <strong>touch screen billing machines</strong>, visit the Leartech business location or contact the team before you travel.</p>
             </div>
-            <a class="fx-text-link" href="https://www.google.com/maps/search/?api=1&query=No.40(S),SBI%20Bank%20Opp.%20Road,2nd%20A%20Main,1st%20Stage,2nd%20Phase,Chandra%20Layout,Bengaluru,560040" target="_blank" rel="noopener">Get directions ${icon.arrow}</a>
+            <a class="fx-text-link" href="https://www.google.com/maps/search/?api=1&query=No.40(S),SBI%20Bank%20Opp.%20Road,2nd%20A%20Main,1st%20Stage,2nd%20Phase,Chandra%20Layout,Bengaluru,560040" target="_blank" rel="noopener">Get directions ${icon.arrow}</a><a class="fx-google-profile" href="https://share.google/BtJHUSVvmcNcuEB4e" target="_blank" rel="noopener"><span class="fx-google-g">G</span> Google Business Profile</a>
           </div>
           <div class="fx-business-grid">
             <article class="fx-business-card"><span class="fx-business-label">ADDRESS</span><strong>No. 40(S), SBI Bank Opp. Road</strong><p>2nd A Main, 1st Stage, 2nd Phase, Chandra Layout, Bengaluru – 560040</p></article>
@@ -463,6 +475,58 @@
     ]
   };
 
+
+  const DEEP_COPY = {
+    home: [
+      "A good billing counter should feel predictable for the operator: the product is easy to identify, the transaction is easy to complete, and the final record is easy to understand later. That rhythm matters on a quiet morning and even more during a busy evening rush.",
+      "For a new setup, it is worth thinking about the full sequence before buying individual devices. Counter height, available sockets, network access, printer placement, scanner position, receipt media and the software interface all affect the final experience.",
+      "Leartech's Chandra Layout presence gives Bengaluru businesses a local point for discussing **billing hardware**, **software requirements** and the practical accessories that complete a counter. Online product research can start the conversation, but the actual configuration should follow the way the business operates."
+    ],
+    products: [
+      "Product selection becomes easier when the requirement is written down first. Note the number of counters, the expected transaction pattern, the type of receipts or labels required, whether products already have barcodes, and whether the business needs dedicated cash-handling equipment.",
+      "A complete counter is often a combination rather than a single purchase. A **POS or billing machine** handles the transaction workflow, while a **barcode scanner** can speed item entry and a **thermal printer** produces the customer receipt. A **cash drawer** may be useful where physical cash remains a meaningful part of daily sales.",
+      "When comparing products, look beyond photographs. Consider the physical footprint, connection method, operating environment, consumables, software compatibility and who will support the installation. Those details decide whether a product remains useful after the first week."
+    ],
+    product: [
+      "A product specification only answers part of the buying question. The other part is how the device will be used at the counter, how frequently it will operate, what it connects to, and what the staff member needs to do immediately before and after using it.",
+      "Think about the surrounding workflow: **item entry**, **transaction calculation**, **payment**, **receipt output** and **record keeping**. A device that performs one task well still needs to fit cleanly into the other four steps.",
+      "For an existing installation, share the current device model, software environment and the problem you are trying to solve. For a new setup, describe the business and counter requirement. This gives the enquiry a useful starting point instead of a generic request for a price."
+    ],
+    industries: [
+      "Industry fit is mainly a workflow question. A grocery counter may prioritize fast scanning and short transaction times, while a salon may place more emphasis on service selection and customer records. The equipment can look similar on paper while the operating needs are very different.",
+      "Businesses also vary in how they handle products and inventory. **Electronics** and **automotive parts** can involve many SKUs and exact item identification, while **fashion** and **home retail** may involve a different product catalogue and customer interaction at the same counter.",
+      "The purpose of the industry catalogue is to make those differences visible. Choose the business environment that feels closest to the way you operate, then use the product and software pages to evaluate the parts of the setup that matter to that environment."
+    ],
+    software: [
+      "Software is easiest to understand when it is described in terms of the daily work it supports. A salesperson needs to find the item, build the transaction, accept payment and finish the bill. A manager then needs a reliable view of what was sold and what information has been recorded.",
+      "The **inventory** layer connects the front counter to the rest of the business. Product records, quantities and transaction history become useful only when the underlying workflow is consistent enough for staff to follow every day.",
+      "The right software also depends on hardware. Screen size, scanning speed, printer behaviour and network reliability all influence the experience of the billing operator. That is why software selection should be discussed together with the physical counter setup rather than in isolation."
+    ],
+    support: [
+      "Support works best when the first message contains enough information to reproduce the problem. A device name, a short description of the symptom, the point in the workflow where it occurs, and a photograph or video can remove several rounds of basic questioning.",
+      "For **printers**, mention whether power and paper feed are normal and whether the issue appears across applications. For **scanners**, mention whether the computer detects the device. For **software**, mention the screen, action and message that appear when the problem occurs.",
+      "The aim of support is not simply to provide a long answer. It is to define the next useful action, test it, and then decide whether further configuration or service is required. Clear support notes make that process faster for both sides."
+    ],
+    about: [
+      "Leartech's offering is easier to evaluate when the parts are considered together. **Billing machines**, **touch screen billing systems**, **thermal printers**, **barcode equipment** and **billing software** each solve a different part of the counter workflow.",
+      "The company page therefore acts as a bridge between the catalogue and the working environment. A business owner can identify the operating need first, understand which equipment fits that need, and then move into a product or support conversation with more useful context.",
+      "The local Chandra Layout presence is part of that practical model. Bengaluru customers can use the listed business location and contact channels when they need product information, configuration guidance or service assistance."
+    ],
+    contact: [
+      "The fastest quotation is usually the one with enough context to avoid guesswork. Include the business type, number of counters, the products or services you bill, your current equipment if any, and the result you want the new system to deliver.",
+      "For a replacement enquiry, a photograph of the existing counter is useful because it can show the device footprint, cable layout and available workspace. For a new installation, describe the expected billing volume and whether you need **barcode scanning**, **receipt printing**, **labels** or **cash handling**.",
+      "The listed Leartech location is in **Chandra Layout, Bengaluru**, with **SBI Bank Opp Road** as a nearby landmark. The page includes a direct Google Maps route and the supplied Google Business Profile link so visitors can verify the listing before travelling."
+    ]
+  };
+
+  function addDeepCopy(){
+    const copy=DEEP_COPY[pageKey];
+    const host=document.querySelector(".fx-rich-content .fx-rich-copy");
+    if(!copy || !host || host.dataset.deep==="1") return;
+    copy.forEach(txt=>{ const p=document.createElement("p"); p.innerHTML=txt.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>"); host.appendChild(p); });
+    host.dataset.deep="1";
+  }
+
   function addFeatureIndex(){
     if(document.querySelector(".fx-feature-index")) return;
     const list=PAGE_FEATURES[pageKey];
@@ -636,7 +700,10 @@
   document.addEventListener("DOMContentLoaded",()=>{
     appendPageEnhancement();
     addRichContent();
+    addDeepCopy();
     addBusinessProfileSection();
+    setPageTheme();
+    addPageUtilities();
     addContactMap();
     addFeatureIndex();
     addSkipLink();
