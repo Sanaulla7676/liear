@@ -1180,3 +1180,12 @@ header.scrolled{
 @media(max-width:560px){
   .hero-pro-grid{width:94vw;padding-top:30px;padding-bottom:32px}.hero-pro-copy h1{font-size:43px}.hero-pro-actions{align-items:stretch;flex-direction:column}.hero-pro-actions .btn{width:100%}.hero-pro-proof>div{padding:0 12px}.hero-pro-proof strong{font-size:18px}.hero-pro-proof span{font-size:8px}.hero-pro-stage{min-height:330px}.hero-stage-label{left:18px;top:17px}.hero-stage-label span{font-size:8px}.hero-stage-label small{font-size:7px}.hero-product-pos{width:220px;height:155px;left:45px;top:52px}.hero-product-scanner{width:80px;height:103px;left:12px;bottom:36px}.hero-product-printer{width:115px;height:105px;right:15px;bottom:58px}.hero-product-drawer{width:145px;height:78px;right:40px;bottom:11px}.industry-hero{padding:52px 0 40px}.industry-hero h1{font-size:44px}.industry-visual-grid{grid-template-columns:1fr}.industry-visual-media{height:220px}.industry-fit-banner{padding:25px 22px;align-items:flex-start;flex-direction:column}.industry-fit-banner h2{font-size:33px}
 }
+
+/* === INDUSTRY PHOTO VISIBILITY FIX === */
+.industry-visual-media{background:#edf4fa!important;min-height:190px;position:relative;overflow:hidden}
+.industry-visual-media .industry-photo{display:block;width:100%;height:100%;min-height:190px;object-fit:cover;object-position:center;transition:transform .6s cubic-bezier(.22,1,.36,1),filter .35s}
+.industry-visual-card:hover .industry-visual-media .industry-photo{transform:scale(1.035)}
+.industry-visual-media:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,27,46,.08),transparent 42%);pointer-events:none}
+.industry-visual-media .industry-photo.failed{display:none}
+.industry-visual-media .industry-visual-number,.industry-visual-media .industry-visual-badge{z-index:3}
+@media(max-width:560px){.industry-visual-media,.industry-visual-media .industry-photo{min-height:220px;height:220px}}
