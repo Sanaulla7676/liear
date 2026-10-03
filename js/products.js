@@ -1,1 +1,53 @@
-function esc(v){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]))}function card(p){return `<article class="card prod-card" data-product-id="${p.id}"><div class="product-image-link" data-product-id="${p.id}" tabindex="0" role="button"><div class="real-visual"><img src="${ASSETS[p.image]}" alt="${esc(p.name)}" loading="lazy"></div></div><div class="body"><span class="tag">${esc(p.cat)}</span><h3 style="margin-top:8px">${esc(p.name)}</h3><p>${esc(p.desc)}</p><div class="price">₹${p.price.toLocaleString("en-IN")}</div><div class="product-actions"><a class="btn outline" href="product.html?id=${p.id}">View Details</a><a class="btn primary" href="contact.html?product=${p.id}">Quote</a></div></div></article>`}function getList(){const tab=document.querySelector(".tab[data-cat].active"),cat=tab?.dataset.cat||"All",cats=[...document.querySelectorAll(".catfilter:checked")].map(x=>x.value),brands=[...document.querySelectorAll(".brandfilter:checked")].map(x=>x.value);let list=PRODUCTS.filter(p=>(cat==="All"||p.cat===cat)&&(!cats.length||cats.includes(p.cat))&&(!brands.length||brands.includes(p.brand)));const sort=document.getElementById("sort")?.value;if(sort==="Price: Low to High")list.sort((a,b)=>a.price-b.price);if(sort==="Price: High to Low")list.sort((a,b)=>b.price-a.price);return list}function render(){const g=document.getElementById("productsGrid"),c=document.getElementById("count");if(!g)return;const list=getList();g.innerHTML=list.map(card).join("");if(c)c.textContent="("+list.length+")";document.querySelectorAll(".product-image-link").forEach(el=>el.onclick=()=>location.href="product.html?id="+encodeURIComponent(el.dataset.productId))}document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".tab[data-cat]").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab[data-cat]").forEach(x=>x.classList.remove("active"));t.classList.add("active");render()}));document.querySelectorAll(".catfilter,.brandfilter").forEach(x=>x.addEventListener("change",render));document.getElementById("sort")?.addEventListener("change",render);render();const home=document.getElementById("homeProducts");if(home)home.innerHTML=PRODUCTS.slice(0,4).map(card).join("")});document.addEventListener("DOMContentLoaded",()=>{const root=document.getElementById("page-product");if(!root)return;const p=PRODUCTS.find(x=>x.id===new URLSearchParams(location.search).get("id"))||PRODUCTS[0];root.querySelector(".detail-photo").src=ASSETS[p.image];root.querySelector(".detail-photo").alt=p.name;root.querySelector(".breadcrumb").textContent="Home › Products › "+p.cat+" › "+p.name;root.querySelector(".detail-copy .tag").textContent=p.cat==="Billing Machines"?"Bestseller":p.cat;root.querySelector(".detail-copy h1").textContent=p.name;root.querySelector(".detail-copy > p").textContent=p.desc;root.querySelector(".detail-copy .bigprice").textContent="₹"+p.price.toLocaleString("en-IN");const quote=root.querySelector("[data-product-quote]");if(quote)quote.href="contact.html?product="+encodeURIComponent(p.id);const wa=root.querySelector(".detail-copy a.btn.green");if(wa)wa.href="https://wa.me/918904997113?text="+encodeURIComponent("Hi Leartech, I am interested in "+p.name+". Please share the best quote and details.")});
+function esc(v){return String(v).replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;","\"":"&quot;"}[c]))}
+function buyUrl(p){return "https://wa.me/918904997113?text="+encodeURIComponent("Hi Leartech, I want to buy "+p.name+". Please share the price and availability.");}
+function card(p){
+  return `<article class="card prod-card" data-product-id="${p.id}">
+    <div class="real-visual"><img src="${p.image}" alt="${esc(p.name)}" loading="lazy"></div>
+    <div class="body">
+      <h3 class="product-title">${esc(p.name)}</h3>
+      <div class="product-rating" aria-hidden="true"><span>★★★★★</span><small>Product Details</small></div>
+      <div class="price product-price">Get Quote</div>
+      <div class="product-actions">
+        <a class="btn product-buy" href="${buyUrl(p)}" target="_blank" rel="noopener">Buy Now <span>→</span></a>
+        <a class="btn product-details" href="product.html?id=${encodeURIComponent(p.id)}">View Details <span>→</span></a>
+      </div>
+    </div>
+  </article>`;
+}
+function getList(){
+  const tab=document.querySelector(".tab[data-cat].active"),cat=tab?.dataset.cat||"All";
+  const cats=[...document.querySelectorAll(".catfilter:checked")].map(x=>x.value);
+  let list=PRODUCTS.filter(p=>(cat==="All"||p.cat===cat)&&(!cats.length||cats.includes(p.cat)));
+  const sort=document.getElementById("sort")?.value;
+  if(sort==="Price: Low to High")list.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort==="Price: High to Low")list.sort((a,b)=>b.name.localeCompare(a.name));
+  return list;
+}
+function renderGrid(targetId="productsGrid",list=getList()){
+  const g=document.getElementById(targetId);if(!g)return;
+  g.innerHTML=list.map(card).join("");
+  const count=document.getElementById("count");if(count)count.textContent="("+list.length+")";
+}
+function initProductListing(){
+  document.querySelectorAll(".tab[data-cat]").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab[data-cat]").forEach(x=>x.classList.remove("active"));t.classList.add("active");renderGrid();}));
+  document.querySelectorAll(".catfilter").forEach(x=>x.addEventListener("change",renderGrid));
+  renderGrid();
+  const home=document.getElementById("homeProducts");if(home)home.innerHTML=PRODUCTS.slice(0,4).map(card).join("");
+}
+function initProductDetail(){
+  const root=document.getElementById("page-product");if(!root)return;
+  const p=PRODUCTS.find(x=>x.id===new URLSearchParams(location.search).get("id"))||PRODUCTS[0];
+  const img=root.querySelector(".detail-photo");if(img){img.src=p.image;img.removeAttribute("data-asset");img.alt=p.name}
+  root.querySelector(".breadcrumb").textContent="Home › Products › "+p.cat+" › "+p.name;
+  root.querySelector(".detail-copy .tag").textContent=p.cat;
+  root.querySelector(".detail-copy h1").textContent=p.name;
+  root.querySelector(".detail-copy > p").textContent=p.desc;
+  root.querySelector(".detail-copy .bigprice").textContent="Get Quote";
+  const quote=root.querySelector("[data-product-quote]");if(quote)quote.href="contact.html?product="+encodeURIComponent(p.id);
+  const wa=root.querySelector(".detail-copy a.btn.green");if(wa){wa.textContent="Buy Now →";wa.href=buyUrl(p);}
+  const firstSpec=root.querySelector(".spec");if(firstSpec)firstSpec.querySelector("span").textContent="Professional business hardware";
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  if(document.getElementById("productsGrid")||document.getElementById("homeProducts"))initProductListing();
+  if(document.getElementById("page-product"))initProductDetail();
+});

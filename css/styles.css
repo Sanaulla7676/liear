@@ -370,3 +370,23 @@ body.cursor-hover .floating-cursor{width:46px;height:46px;background:rgba(43,139
 }
 
 :root{--progress:0%}#scrollProgress{position:fixed;left:0;top:0;width:100%;height:3px;z-index:100;background:transparent;pointer-events:none}#scrollProgress:after{content:"";display:block;width:var(--progress);height:100%;background:linear-gradient(90deg,var(--blue),#66b3ff);box-shadow:0 0 18px rgba(43,139,255,.55)}
+/* Product catalog reference layout */
+.products-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.prod-card{background:#fff;border:1px solid #e4e7ec;border-radius:18px;box-shadow:0 8px 25px rgba(17,45,78,.08);overflow:hidden}
+.prod-card .real-visual{height:180px;background:#e9e9e9;display:grid;place-items:center;overflow:hidden;position:relative}
+.prod-card .real-visual img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .5s ease}
+.prod-card:hover .real-visual img{transform:scale(1.045)}
+.prod-card .body{padding:14px 14px 12px}
+.prod-card .product-title{margin:0;font-size:14px;line-height:1.25;letter-spacing:.04em;text-transform:uppercase;min-height:35px}
+.product-rating{display:flex;align-items:center;gap:7px;margin:8px 0 5px}
+.product-rating span{color:#f7ca2b;font-size:15px;letter-spacing:1px}
+.product-rating small{color:#9aa3ad;font-size:10px}
+.product-price{font-size:19px;font-weight:950;margin:4px 0 10px;color:#111}
+.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.product-actions .btn{min-height:40px;padding:9px 10px;border-radius:999px;font-size:11px;white-space:nowrap}
+.product-buy{background:#2da9d8;color:#fff;border-color:#2da9d8}
+.product-details{background:#eef7ff;border-color:#b8dcf2;color:#1268e8}
+.product-actions .btn span{margin-left:auto;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.95);color:#2da9d8;font-size:12px}
+.product-details span{background:#1268e8;color:#fff}
+@media(max-width:900px){.products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.products-grid{grid-template-columns:1fr 1fr;gap:10px}.prod-card .real-visual{height:145px}.prod-card .body{padding:11px}.prod-card .product-title{font-size:11px;min-height:28px}.product-actions{grid-template-columns:1fr}.product-actions .btn{width:100%}}
