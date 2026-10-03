@@ -105,8 +105,8 @@
     return sources.slice(0,4);
   }
 
-  function starMarkup(){
-    return '<span aria-hidden="true">★★★★★</span><small>5.0</small>';
+  function starMarkup(product){
+    return '<span aria-hidden="true">★★★★★</span><small>'+esc(product.rating||"4.8")+'</small>';
   }
 
   function cardMarkup(product){
@@ -128,7 +128,7 @@
         </div>
         <div class="prod-card-body">
           <h3 class="product-title">${esc(product.name)}</h3>
-          <div class="product-rating">${starMarkup()}</div>
+          <div class="product-rating">${starMarkup(product)}</div>
           <div class="product-actions">
             <button class="btn product-details" type="button" data-action="details">View Details</button>
             <button class="btn product-buy" type="button" data-action="buy">Buy Now</button>
