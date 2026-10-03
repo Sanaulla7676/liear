@@ -16,7 +16,8 @@ document.querySelectorAll(".grid4,.aud-grid,.industry-grid,.metric-grid,.testimo
 const lead=document.getElementById("leadForm");
 if(lead){
 const params=new URLSearchParams(location.search);
-const catalog=typeof PRODUCTS!=="undefined"?PRODUCTS:[];\nconst selected=catalog.find(p=>p.id===params.get("product"));
+const catalog=typeof PRODUCTS!=="undefined"?PRODUCTS:[];
+const selected=catalog.find(p=>p.id===params.get("product"));
 const need=document.getElementById("need");
 if(selected&&need&&!need.value)need.value="I am interested in "+selected.name+". Please share the best quote and setup details.";
 lead.addEventListener("submit",e=>{
