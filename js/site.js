@@ -33,3 +33,56 @@ location.href="https://wa.me/918618605066?text="+encodeURIComponent(msg);
 }
 document.getElementById("year")?.replaceChildren(document.createTextNode(String(new Date().getFullYear())));
 });
+
+/* Premium motion layer: purposeful scroll/parallax/reveal interactions. */
+document.addEventListener("DOMContentLoaded",()=>{
+  const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const hero=document.querySelector("#page-home .hero-reference-wrap");
+  const heroArt=document.querySelector("#page-home .hero-reference-art");
+
+  const progress=document.createElement("div");
+  progress.className="scroll-progress";
+  progress.setAttribute("aria-hidden","true");
+  document.body.appendChild(progress);
+
+  const updateMotion=()=>{
+    const y=window.scrollY||0;
+    const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    progress.style.setProperty("--scroll-progress",(y/max)*100+"%");
+    if(!reduce && hero && heroArt){
+      const p=Math.min(y/700,1);
+      heroArt.style.transform="translate3d(0,"+(p*28)+"px,0) scale("+(1.018+p*.012)+")";
+    }
+  };
+  window.addEventListener("scroll",updateMotion,{passive:true});
+  updateMotion();
+
+  if(!reduce){
+    document.querySelectorAll(".reveal").forEach((el)=>{
+      el.style.setProperty("--reveal-delay",((el.getBoundingClientRect().top % 5) * .02)+"s");
+    });
+
+    document.querySelectorAll(".stagger > *").forEach((el,i)=>{
+      el.style.setProperty("--item-delay",Math.min(i*.055,.33)+"s");
+    });
+
+    document.querySelectorAll("a.btn, .pill, .catalog-tab, .detail-thumb, .gallery-thumb").forEach((el)=>{
+      el.addEventListener("pointerenter",()=>el.classList.add("motion-hover"));
+      el.addEventListener("pointerleave",()=>el.classList.remove("motion-hover"));
+    });
+
+    document.querySelectorAll(".card:not(.reference-prod-card), .aud, .industry, .metric, .quote").forEach((el)=>{
+      el.addEventListener("pointermove",(e)=>{
+        const r=el.getBoundingClientRect();
+        const x=(e.clientX-r.left)/r.width-.5;
+        const y=(e.clientY-r.top)/r.height-.5;
+        el.style.setProperty("--mx",x.toFixed(3));
+        el.style.setProperty("--my",y.toFixed(3));
+      });
+      el.addEventListener("pointerleave",()=>{
+        el.style.removeProperty("--mx");
+        el.style.removeProperty("--my");
+      });
+    });
+  }
+});
