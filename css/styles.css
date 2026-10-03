@@ -1228,3 +1228,12 @@ header.scrolled{
 #industryCards .industry-scene{display:none!important}
 @media(max-width:820px){#industryCards .industry-visual-media{height:210px!important}#industryCards .industry-photo{min-height:210px!important}}
 @media(max-width:560px){#industryCards .industry-visual-media{height:220px!important}#industryCards .industry-photo{min-height:220px!important}}
+
+/* Final industry render guard: cards and photos stay visible even if animation CDN/JS is unavailable. */
+#industryCards{display:grid!important}
+#industryCards .industry-visual-card{display:block!important;opacity:1;visibility:visible;transform:none}
+#industryCards .industry-visual-card[hidden]{display:none!important}
+#industryCards .industry-visual-media{display:block!important;height:230px!important;min-height:230px!important;overflow:hidden!important;position:relative!important;background:#edf4fa!important}
+#industryCards .industry-photo{display:block!important;visibility:visible!important;opacity:1!important;width:100%!important;height:100%!important;min-height:230px!important;object-fit:cover!important;object-position:center!important}
+@media(max-width:820px){#industryCards .industry-visual-media{height:210px!important;min-height:210px!important}#industryCards .industry-photo{min-height:210px!important}}
+@media(max-width:560px){#industryCards .industry-visual-media{height:220px!important;min-height:220px!important}#industryCards .industry-photo{min-height:220px!important}}
