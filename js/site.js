@@ -86,3 +86,13 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
   }
 });
+
+/* Exact vector icons for floating WhatsApp / call actions. */
+document.addEventListener("DOMContentLoaded",()=>{
+  const icons={
+    wa:'<svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.1 3.9A9.8 9.8 0 0 0 4.5 16.1L3 21l5-1.5A9.8 9.8 0 1 0 20.1 3.9Zm-8.2 15.8c-1.6 0-3.2-.4-4.6-1.2l-.3-.2-3 .9.9-2.9-.2-.3a8.1 8.1 0 1 1 7.2 3.7Zm4.4-6.1c-.2-.1-1.3-.7-1.5-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1-1.7-.8-2.8-1.5-3.9-3.3-.1-.2-.1-.4.1-.5l.5-.6c.1-.2.2-.3.1-.5l-.6-1.5c-.2-.4-.3-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2s.9 2.6 1 2.8c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.1.2 1.5.1.5-.1 1.3-.5 1.5-1 .2-.5.2-1 .1-1.1-.1-.1-.3-.2-.5-.3Z"/></svg>',
+    call:'<svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 3.3 5.2 5.2c-.5.5-.7 1.2-.4 1.9 1.6 4.1 4 7.5 8 10.1.7.4 1.5.3 2-.2l1.8-1.8c.4-.4 1-.5 1.5-.2l2.2 1.1c.7.4 1.1 1.1.9 1.9l-.4 1.8c-.2.9-1 1.6-1.9 1.7-2.7.3-7.4-1.4-11.7-5.7S1.2 7.9 1.5 5.2c.1-.9.8-1.7 1.7-1.9L5 2.9c.8-.2 1.5.2 1.9.9L8 6c.3.5.2 1.1-.2 1.5L7.1 8.2c1.1 1.7 2.4 3.1 4.1 4.2l.7-.7c.4-.4 1-.5 1.5-.2l2.2 1.1c.7.4 1 1.2.7 1.9l-.6 1.5c-.3.7-1 1.2-1.8 1.3-1.7.1-5.3-1.5-8.7-4.9S.5 5.8.6 4.1C.7 3.3 1.2 2.6 1.9 2.3l1.5-.6c.7-.3 1.5 0 1.9.7l1.1 2.2c.3.5.2 1.1-.2 1.5l-.7.7Z"/></svg>'
+  };
+  document.querySelectorAll(".float .wa").forEach(el=>{el.innerHTML=icons.wa;el.setAttribute("aria-label","WhatsApp Leartech");el.setAttribute("title","WhatsApp Leartech");});
+  document.querySelectorAll(".float .call").forEach(el=>{el.innerHTML=icons.call;el.setAttribute("aria-label","Call Leartech");el.setAttribute("title","Call Leartech");});
+});
