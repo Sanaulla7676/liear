@@ -705,7 +705,6 @@
     setPageTheme();
     addPageUtilities();
     addContactMap();
-    addFeatureIndex();
     addSkipLink();
     addSEO();
     normalizeFloatingButtons();
