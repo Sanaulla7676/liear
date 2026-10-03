@@ -349,6 +349,10 @@
 
   function selectProduct(productId, scrollToDetail=false){
     const product=getProduct(productId);
+    if(!document.getElementById("productDetailPanel")){
+      window.location.href="product.html?id="+encodeURIComponent(product.id);
+      return;
+    }
     renderDetail(product.id,true);
     const url = "products.html?id=" + encodeURIComponent(product.id);
     if(history.replaceState) history.replaceState({product:product.id},"",url);
