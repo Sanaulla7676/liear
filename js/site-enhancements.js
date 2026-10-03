@@ -754,7 +754,6 @@
     addDeepCopy();
     addBusinessProfileSection();
     setPageTheme();
-    addPageUtilities();
     ensureGlobalQuickSetup();
     addGlobalMobileBar();
     addSearchShortcut();
