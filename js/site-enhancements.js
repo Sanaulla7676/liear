@@ -697,6 +697,47 @@
     });
   }
 
+
+  function ensureGlobalQuickSetup(){
+    if(document.querySelector(".ux-quick-setup")) return;
+    const host=document.createElement("div");
+    host.className="ux-quick-setup";
+    const label=pageKey==="support"?"Request support":pageKey==="contact"?"Start an enquiry":"Find my setup";
+    host.innerHTML='<button class="ux-setup-trigger" type="button" aria-haspopup="dialog" aria-controls="uxSetupDialog"><span class="ux-setup-icon">✦</span><span>'+label+'</span></button>'+
+      '<div class="ux-setup-backdrop" data-setup-close></div>'+
+      '<section class="ux-setup-dialog" id="uxSetupDialog" role="dialog" aria-modal="true" aria-labelledby="uxSetupTitle">'+
+      '<button class="ux-setup-close" type="button" data-setup-close aria-label="Close">×</button>'+
+      '<div class="ux-setup-kicker">QUICK SETUP FINDER</div><h2 id="uxSetupTitle">Plan the right billing setup in three steps.</h2>'+
+      '<p class="ux-setup-intro">Choose your business, counter count and requirement. We will turn those answers into a ready-to-send WhatsApp enquiry.</p>'+
+      '<div class="ux-stepper"><span class="active" data-step-dot="1">1</span><i></i><span data-step-dot="2">2</span><i></i><span data-step-dot="3">3</span></div>'+
+      '<div class="ux-setup-step active" data-step="1"><label>Business type<select id="uxBusiness"><option>Retail Store</option><option>Grocery / Supermarket</option><option>Restaurant / Café</option><option>Fashion / Apparel</option><option>Electronics</option><option>Automotive</option><option>Salon / Beauty</option><option>Other</option></select></label><button class="btn primary" type="button" data-next-step>Continue →</button></div>'+
+      '<div class="ux-setup-step" data-step="2"><label>Billing points<select id="uxCounters"><option>1 counter</option><option>2 counters</option><option>3–5 counters</option><option>6+ counters</option><option>Not decided</option></select></label><button class="btn primary" type="button" data-next-step>Continue →</button></div>'+
+      '<div class="ux-setup-step" data-step="3"><label>Requirement<textarea id="uxNeed" placeholder="Example: POS, thermal printer and barcode scanner..."></textarea></label><button class="btn primary" type="button" data-setup-send>Send enquiry on WhatsApp →</button></div>'+
+      '</section>';
+    document.body.appendChild(host);
+    let step=1;
+    const showStep=n=>{step=n;host.querySelectorAll(".ux-setup-step").forEach(el=>el.classList.toggle("active",Number(el.dataset.step)===n));host.querySelectorAll("[data-step-dot]").forEach(el=>el.classList.toggle("active",Number(el.dataset.stepDot)<=n));};
+    const open=()=>host.classList.add("open"), close=()=>host.classList.remove("open");
+    host.querySelector(".ux-setup-trigger").addEventListener("click",open);
+    host.querySelectorAll("[data-setup-close]").forEach(el=>el.addEventListener("click",close));
+    host.querySelectorAll("[data-next-step]").forEach(el=>el.addEventListener("click",()=>showStep(Math.min(3,step+1))));
+    host.querySelector("[data-setup-send]").addEventListener("click",()=>{
+      const message=["Hi Leartech, I need help choosing a billing/POS setup.","","Business: "+host.querySelector("#uxBusiness").value,"Billing points: "+host.querySelector("#uxCounters").value,"Requirement: "+(host.querySelector("#uxNeed").value.trim()||"Please recommend the right setup.")].join("\\n");
+      window.open("https://wa.me/918618605966?text="+encodeURIComponent(message),"_blank","noopener,noreferrer");
+      close();
+    });
+    document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  }
+
+  function addSearchShortcut(){
+    document.addEventListener("keydown",e=>{
+      if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==="k"){
+        const input=document.querySelector("#productSearch,#standaloneSearch");
+        if(input){e.preventDefault();input.focus();}
+      }
+    });
+  }
+
   document.addEventListener("DOMContentLoaded",()=>{
     appendPageEnhancement();
     addRichContent();
@@ -704,6 +745,8 @@
     addBusinessProfileSection();
     setPageTheme();
     addPageUtilities();
+    ensureGlobalQuickSetup();
+    addSearchShortcut();
     addContactMap();
     addSkipLink();
     addSEO();
