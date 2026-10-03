@@ -1479,3 +1479,14 @@ html body{font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smo
  .fx-page-tools{bottom:78px}
 }
 @media(prefers-reduced-motion:reduce){.ux-setup-dialog,.ux-setup-backdrop,.ux-setup-trigger{transition:none!important}}
+
+/* Final hero sizing + cache-safe UX polish */
+#page-home .hero-quick-btn{height:6.8%!important;font-size:11px!important;padding:0 13px!important;border-radius:14px!important}
+#page-home .hero-quick-call{left:3.9%!important;top:58.2%!important;width:10.8%!important}
+#page-home .hero-quick-wa{left:15.7%!important;top:58.2%!important;width:14.4%!important}
+#page-home .hero-quick-btn .contact-icon{width:20px!important;height:20px!important}
+@media(max-width:760px){
+  #page-home .hero-quick-btn{height:7.2%!important;font-size:9px!important;padding:0 8px!important}
+  #page-home .hero-quick-call{left:4.0%!important;top:58.2%!important;width:11.2%!important}
+  #page-home .hero-quick-wa{left:15.9%!important;top:58.2%!important;width:14.9%!important}
+}
