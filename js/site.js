@@ -50,8 +50,12 @@ document.addEventListener("DOMContentLoaded",()=>{
     const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
     progress.style.setProperty("--scroll-progress",(y/max)*100+"%");
     if(!reduce && hero && heroArt){
-      const p=Math.min(y/700,1);
-      heroArt.style.transform="translate3d(0,"+(p*28)+"px,0) scale("+(1.018+p*.012)+")";
+      const phone=window.matchMedia("(max-width:760px)").matches;
+      if(phone){ heroArt.style.transform="none"; }
+      else {
+        const p=Math.min(y/700,1);
+        heroArt.style.transform="translate3d(0,"+(p*18)+"px,0) scale("+(1.008+p*.006)+")";
+      }
     }
   };
   window.addEventListener("scroll",updateMotion,{passive:true});
