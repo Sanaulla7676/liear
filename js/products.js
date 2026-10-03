@@ -2,7 +2,7 @@
 (function(){
   "use strict";
 
-  const WA_NUMBER = "918904997113";
+  const WA_NUMBER = "918618605066";
   const GALLERY_CACHE = new Map();
   const SCRIPT_PROMISES = new Map();
   const CART_KEY = "leartech_quote_cart";

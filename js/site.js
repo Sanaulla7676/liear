@@ -28,7 +28,7 @@ const business=document.getElementById("business")?.value||"";
 const requirement=need?.value.trim()||"Please advise on the right billing setup.";
 if(phone.replace(/\D/g,"").length<10){document.getElementById("phone")?.reportValidity();return}
 const msg=["Hi Leartech, I would like a billing/POS enquiry.","","Name: "+name,"Phone: "+phone,"Business: "+business,"Requirement: "+requirement].join("\n");
-location.href="https://wa.me/918904997113?text="+encodeURIComponent(msg);
+location.href="https://wa.me/918618605066?text="+encodeURIComponent(msg);
 });
 }
 document.getElementById("year")?.replaceChildren(document.createTextNode(String(new Date().getFullYear())));
