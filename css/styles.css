@@ -1490,3 +1490,72 @@ html body{font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smo
   #page-home .hero-quick-call{left:4.0%!important;top:58.2%!important;width:11.2%!important}
   #page-home .hero-quick-wa{left:15.9%!important;top:58.2%!important;width:14.9%!important}
 }
+
+/* 2026-10-04 responsive hardening: preserve the original hero artwork on every viewport */
+html,body{max-width:100%;overflow-x:hidden}
+#page-home .hero-reference{width:100%;overflow:visible;background:#fff}
+#page-home .hero-reference-wrap{
+  width:100%!important;margin:0!important;height:auto!important;min-height:0!important;
+  aspect-ratio:auto!important;overflow:visible!important;background:#fff!important;
+}
+#page-home .hero-reference-art{
+  position:relative!important;inset:auto!important;display:block!important;
+  width:100%!important;height:auto!important;min-width:100%!important;max-width:100%!important;
+  min-height:0!important;max-height:none!important;object-fit:contain!important;
+  object-position:center top!important;transform:none!important;
+}
+#page-home .hero-white-mask{pointer-events:none}
+#page-home .hero-quick-actions{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;pointer-events:none!important}
+#page-home .hero-quick-btn{box-sizing:border-box!important}
+#page-home .hero-sr-copy{pointer-events:none!important}
+
+/* Tablet */
+@media (min-width:761px) and (max-width:1100px){
+  .container{width:min(94vw,1040px)}
+  .nav{gap:10px}
+  .links{gap:14px}
+  .links a{font-size:12px}
+  #page-home .hero-quick-btn{font-size:10px!important;height:7%!important;padding:0 10px!important;border-radius:12px!important}
+  #page-home .hero-quick-call{left:3.9%!important;top:58.1%!important;width:10.6%!important}
+  #page-home .hero-quick-wa{left:15.7%!important;top:58.1%!important;width:14.1%!important}
+}
+
+/* Phone: show the source artwork exactly, including its original CTA artwork.
+   The functional hit targets remain aligned without duplicating another visible button. */
+@media (max-width:760px){
+  body{padding-bottom:78px}
+  header .nav{height:62px;padding-inline:14px}
+  header .brand{font-size:22px;letter-spacing:-1px}
+  header .brand small{font-size:7px}
+  header .links{display:none}
+  header .links.mobile-open{
+    display:flex!important;
+    position:absolute;top:62px;left:0;right:0;
+    padding:12px 16px!important;gap:3px!important;
+    background:#fff;flex-direction:column;
+    box-shadow:0 16px 40px rgba(9,27,49,.12);
+    border-bottom:1px solid var(--line);
+  }
+  header .links.mobile-open a{padding:12px 5px!important;font-size:13px!important}
+  header .nav-actions{display:none!important}
+  header .menu{display:grid!important;place-items:center;width:42px;height:42px;border-radius:12px;background:#f4f8fc;font-size:20px}
+  #page-home .hero-reference-wrap{overflow:hidden!important}
+  #page-home .hero-reference-art{width:100%!important;height:auto!important}
+  #page-home .hero-white-mask{display:none!important}
+  #page-home .hero-quick-actions{display:none!important}
+  #page-home .hero-hotspot{display:block!important;position:absolute!important;z-index:20!important;background:transparent!important}
+  #page-home .hero-hotspot-quote{left:4.2%!important;top:58.0%!important;width:11.5%!important;height:9.0%!important}
+  #page-home .hero-hotspot-whatsapp{left:16.1%!important;top:58.0%!important;width:14.2%!important;height:9.0%!important}
+  #page-home .hero-hotspot a{display:block!important;width:100%!important;height:100%!important;background:transparent!important}
+  .ux-setup-trigger{right:12px!important;bottom:84px!important;font-size:10px!important;padding:10px 13px!important}
+  .fx-page-tools{display:none!important}
+  .float{right:10px!important;bottom:88px!important}
+  .float a{width:44px!important;height:44px!important}
+}
+
+/* Small phones: keep every tap target reachable without changing the source image */
+@media (max-width:430px){
+  .ux-setup-trigger{padding:9px 11px!important;font-size:9px!important}
+  .ux-mobile-bar{left:7px!important;right:7px!important;bottom:7px!important}
+  .ux-mobile-bar a,.ux-mobile-bar button{font-size:9px!important;min-height:40px!important}
+}
