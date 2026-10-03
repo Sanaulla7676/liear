@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root{--navy:#091b31;--navy2:#112d4e;--blue:#1268e8;--blue2:#2b8bff;--sky:#eaf5ff;--green:#16b95a;--ink:#0b1e35;--muted:#66758a;--line:#dde6f0;--card:#fff;--bg:#f7faff;--r:22px;--shadow:0 14px 45px rgba(17,45,78,.10)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg)}
@@ -1405,7 +1406,6 @@ header.scrolled{
 @media(max-width:620px){.fx-feature-index .fx-feature-index-grid{grid-template-columns:1fr}.fx-map-shell iframe{height:340px}}
 
 /* 2026-10-04 premium page-specific design language */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 body[data-page="home"]{font-family:"DM Sans",sans-serif}body[data-page="home"] h1,body[data-page="home"] h2{font-family:"Space Grotesk",sans-serif}
 body[data-page="products"]{font-family:"Manrope",sans-serif}body[data-page="products"] h1,body[data-page="products"] h2{font-family:"Sora",sans-serif}
 body[data-page="product"]{font-family:"Sora",sans-serif}body[data-page="product"] h1,body[data-page="product"] h2{font-family:"Manrope",sans-serif}
