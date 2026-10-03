@@ -1559,3 +1559,23 @@ html,body{max-width:100%;overflow-x:hidden}
   .ux-mobile-bar{left:7px!important;right:7px!important;bottom:7px!important}
   .ux-mobile-bar a,.ux-mobile-bar button{font-size:9px!important;min-height:40px!important}
 }
+
+/* Final responsive safeguards */
+@media (max-width:760px){
+  a,button,input,select,textarea{touch-action:manipulation}
+  input,select,textarea{font-size:16px!important}
+  .btn,.pill,.menu,.ux-setup-trigger,.ux-mobile-bar a,.ux-mobile-bar button{min-height:42px}
+  .container{width:min(92vw,560px)}
+  .section{padding:54px 0}
+  .head h2,.fx-heading-row h2{line-height:1.08}
+  .fx-rich-copy p{font-size:14px;line-height:1.78}
+  .fx-business-card{padding:19px}
+  .fx-map-shell{border-radius:18px}
+}
+@media (min-width:761px) and (max-width:1100px){
+  .container{width:min(92vw,980px)}
+  .section{padding:78px 0}
+}
+@supports(padding:max(0px)){
+  @media(max-width:760px){body{padding-bottom:max(78px,calc(68px + env(safe-area-inset-bottom)))}.ux-mobile-bar{bottom:max(7px,env(safe-area-inset-bottom))}}
+}
