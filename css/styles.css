@@ -1864,3 +1864,225 @@ header.nav-scrolled .nav{
   }
   .nav-actions{display:none!important}
 }
+
+
+/* =========================================================
+   MOBILE PRODUCT LAYOUT v4
+   Home + Products catalog: 2 clear cards per row on phones.
+   Desktop/tablet layout remains untouched.
+   ========================================================= */
+@media (max-width:760px){
+  /* Home "Our Products" */
+  #homeProducts{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    width:100%!important;
+  }
+  #homeProducts .reference-prod-card{
+    width:100%!important;
+    min-width:0!important;
+    border-radius:14px!important;
+  }
+  #homeProducts .prod-media{
+    height:156px!important;
+    min-height:156px!important;
+  }
+  #homeProducts .prod-image-link img{
+    width:100%!important;
+    height:100%!important;
+    padding:8px!important;
+    object-fit:contain!important;
+  }
+  #homeProducts .prod-card-body{
+    padding:10px 9px 9px!important;
+  }
+  #homeProducts .product-title{
+    font-size:10.5px!important;
+    line-height:1.28!important;
+    min-height:28px!important;
+  }
+  #homeProducts .product-rating{
+    margin:5px 0 7px!important;
+    gap:4px!important;
+  }
+  #homeProducts .product-rating span{
+    font-size:11px!important;
+  }
+  #homeProducts .product-rating small{
+    font-size:7px!important;
+  }
+  #homeProducts .product-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:5px!important;
+  }
+  #homeProducts .product-actions .btn{
+    min-width:0!important;
+    min-height:34px!important;
+    height:34px!important;
+    padding:6px 3px!important;
+    border-radius:8px!important;
+    font-size:8px!important;
+    white-space:nowrap!important;
+  }
+
+  /* Products catalog: exactly 2 products per row on a phone */
+  .product-catalog-page .catalog-shell > .container{
+    width:94vw!important;
+  }
+  .product-catalog-page .catalog-filter-row{
+    align-items:flex-start!important;
+    gap:8px!important;
+  }
+  .product-catalog-page .catalog-tabs{
+    width:100%!important;
+    overflow-x:auto!important;
+    flex-wrap:nowrap!important;
+    scrollbar-width:none!important;
+    -webkit-overflow-scrolling:touch!important;
+    padding-bottom:2px!important;
+  }
+  .product-catalog-page .catalog-tabs::-webkit-scrollbar{display:none}
+  .product-catalog-page .catalog-tab{
+    flex:0 0 auto!important;
+    min-height:40px!important;
+    white-space:nowrap!important;
+  }
+  .product-catalog-page .catalog-sort{
+    flex:0 0 auto!important;
+  }
+  .product-catalog-page .catalog-layout{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+  }
+  .product-catalog-page .catalog-results-head{
+    align-items:flex-start!important;
+    display:block!important;
+    margin-bottom:12px!important;
+  }
+  .product-catalog-page .catalog-results-head h2{
+    font-size:19px!important;
+  }
+  .product-catalog-page .catalog-results-head > span{
+    display:block!important;
+    margin-top:5px!important;
+    font-size:9px!important;
+    line-height:1.4!important;
+  }
+  .product-catalog-page .reference-products-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    align-items:start!important;
+  }
+  .product-catalog-page .reference-prod-card{
+    width:100%!important;
+    min-width:0!important;
+    border-radius:14px!important;
+    overflow:hidden!important;
+  }
+  .product-catalog-page .reference-prod-card .prod-media{
+    height:164px!important;
+    min-height:164px!important;
+  }
+  .product-catalog-page .reference-prod-card .prod-image-link img{
+    width:100%!important;
+    height:100%!important;
+    padding:8px!important;
+    object-fit:contain!important;
+  }
+  .product-catalog-page .reference-prod-card .prod-card-body{
+    padding:10px 9px 9px!important;
+  }
+  .product-catalog-page .reference-prod-card .product-title{
+    font-size:10.5px!important;
+    line-height:1.3!important;
+    min-height:28px!important;
+  }
+  .product-catalog-page .reference-prod-card .product-rating{
+    margin:5px 0 7px!important;
+  }
+  .product-catalog-page .reference-prod-card .product-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:5px!important;
+  }
+  .product-catalog-page .reference-prod-card .product-actions .btn{
+    min-width:0!important;
+    width:100%!important;
+    min-height:35px!important;
+    height:35px!important;
+    padding:6px 2px!important;
+    border-radius:8px!important;
+    font-size:8px!important;
+    white-space:nowrap!important;
+  }
+  .product-catalog-page .media-arrow{
+    width:24px!important;
+    height:24px!important;
+    opacity:1!important;
+    font-size:18px!important;
+  }
+  .product-catalog-page .media-prev{left:5px!important}
+  .product-catalog-page .media-next{right:5px!important}
+  .product-catalog-page .media-count{
+    right:6px!important;
+    bottom:7px!important;
+    font-size:7px!important;
+  }
+  .product-catalog-page .media-dots{
+    bottom:5px!important;
+  }
+  .product-catalog-page .media-dot{
+    width:5px!important;
+    height:5px!important;
+  }
+
+  /* Keep the selected product detail clean and full width below the 2-column grid */
+  .product-catalog-page .product-detail-panel{
+    position:relative!important;
+    top:auto!important;
+    min-height:0!important;
+    border-left:0!important;
+    border-top:1px solid #e5ebf1!important;
+    border-radius:18px!important;
+    box-shadow:0 12px 30px rgba(16,40,67,.06)!important;
+    overflow:visible!important;
+  }
+  .product-catalog-page .detail-media-shell{
+    height:300px!important;
+    margin:0 10px!important;
+  }
+  .product-catalog-page .detail-main-image{
+    padding:10px!important;
+    object-fit:contain!important;
+  }
+  .product-catalog-page .detail-info{
+    padding:0 16px 18px!important;
+  }
+  .product-catalog-page .detail-info h2{
+    font-size:31px!important;
+  }
+}
+
+/* Narrow phones: retain 2 columns, but increase visual area instead of shrinking cards. */
+@media (max-width:420px){
+  #homeProducts,.product-catalog-page .reference-products-grid{
+    gap:8px!important;
+  }
+  #homeProducts .prod-media{
+    height:150px!important;
+    min-height:150px!important;
+  }
+  .product-catalog-page .reference-prod-card .prod-media{
+    height:158px!important;
+    min-height:158px!important;
+  }
+  #homeProducts .product-actions .btn,
+  .product-catalog-page .reference-prod-card .product-actions .btn{
+    font-size:7.6px!important;
+    padding-inline:1px!important;
+  }
+}
