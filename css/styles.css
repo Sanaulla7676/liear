@@ -2086,3 +2086,130 @@ header.nav-scrolled .nav{
     padding-inline:1px!important;
   }
 }
+
+/* Mobile catalogue/product cards: two cards, larger original imagery, readable controls */
+@media(max-width:760px){
+  #homeProducts,
+  .product-catalog-page .reference-products-grid,
+  .reference-products-grid{
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:12px!important;
+    width:100%!important;
+  }
+  #homeProducts .reference-prod-card,
+  .product-catalog-page .reference-prod-card,
+  .reference-prod-card{
+    width:100%!important;
+    min-width:0!important;
+    overflow:hidden!important;
+    border-radius:16px!important;
+  }
+  #homeProducts .reference-prod-card .prod-media,
+  .product-catalog-page .reference-prod-card .prod-media,
+  .reference-prod-card .prod-media{
+    height:180px!important;
+    min-height:180px!important;
+    aspect-ratio:1/1!important;
+    background:#f5f8fc!important;
+  }
+  #homeProducts .reference-prod-card .prod-image-link,
+  .product-catalog-page .reference-prod-card .prod-image-link,
+  .reference-prod-card .prod-image-link{
+    width:100%!important;
+    height:100%!important;
+    display:grid!important;
+    place-items:center!important;
+  }
+  #homeProducts .reference-prod-card .prod-image-link img,
+  .product-catalog-page .reference-prod-card .prod-image-link img,
+  .reference-prod-card .prod-image-link img{
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    max-height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    padding:12px!important;
+  }
+  #homeProducts .reference-prod-card .prod-card-body,
+  .product-catalog-page .reference-prod-card .prod-card-body,
+  .reference-prod-card .prod-card-body{
+    padding:12px!important;
+  }
+  #homeProducts .reference-prod-card .product-title,
+  .product-catalog-page .reference-prod-card .product-title,
+  .reference-prod-card .product-title{
+    min-height:36px!important;
+    font-size:12px!important;
+    line-height:1.3!important;
+    margin:0!important;
+    display:-webkit-box!important;
+    -webkit-line-clamp:2!important;
+    -webkit-box-orient:vertical!important;
+    overflow:hidden!important;
+  }
+  #homeProducts .reference-prod-card .product-rating,
+  .product-catalog-page .reference-prod-card .product-rating{
+    margin:6px 0!important;
+    font-size:10px!important;
+  }
+  #homeProducts .reference-prod-card .product-actions,
+  .product-catalog-page .reference-prod-card .product-actions,
+  .reference-prod-card .product-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:6px!important;
+  }
+  #homeProducts .reference-prod-card .product-actions .btn,
+  .product-catalog-page .reference-prod-card .product-actions .btn,
+  .reference-prod-card .product-actions .btn{
+    width:100%!important;
+    min-width:0!important;
+    min-height:38px!important;
+    height:38px!important;
+    padding:0 7px!important;
+    font-size:9px!important;
+    border-radius:11px!important;
+    white-space:nowrap!important;
+  }
+  .product-catalog-page .catalog-results-head{
+    display:block!important;
+    margin-bottom:14px!important;
+  }
+  .product-catalog-page .catalog-results-head span{
+    display:block!important;
+    margin-top:6px!important;
+    font-size:11px!important;
+    line-height:1.5!important;
+  }
+  .product-catalog-page .catalog-filter-row{
+    display:block!important;
+  }
+  .product-catalog-page .catalog-sort{
+    margin-top:10px!important;
+  }
+}
+@media(max-width:430px){
+  #homeProducts .reference-prod-card .prod-media,
+  .product-catalog-page .reference-prod-card .prod-media,
+  .reference-prod-card .prod-media{
+    height:154px!important;
+    min-height:154px!important;
+  }
+  #homeProducts .reference-prod-card .prod-image-link img,
+  .product-catalog-page .reference-prod-card .prod-image-link img{
+    padding:9px!important;
+  }
+  #homeProducts .reference-prod-card .product-title,
+  .product-catalog-page .reference-prod-card .product-title{
+    font-size:11px!important;
+  }
+  #homeProducts .reference-prod-card .product-actions .btn,
+  .product-catalog-page .reference-prod-card .product-actions .btn{
+    min-height:36px!important;
+    height:36px!important;
+    font-size:8px!important;
+  }
+}
