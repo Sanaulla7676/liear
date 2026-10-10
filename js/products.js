@@ -101,7 +101,6 @@
       .filter(Boolean);
 
     if(!sources.length) sources.push(product.preview);
-    while(sources.length < 4) sources.push(sources[sources.length - 1]);
     return sources.slice(0,4);
   }
 
