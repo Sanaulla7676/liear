@@ -52,3 +52,138 @@
 @media (prefers-reduced-motion: reduce) {
   .nav-actions .callpill::after { animation: none !important; display: none !important; }
 }
+
+
+/* Full-product visibility fix: use a larger image stage and never zoom/crop catalog or detail product photography. */
+#homeProducts .prod-media,
+.product-catalog-page .reference-prod-card .prod-media {
+  height: 244px !important;
+  min-height: 244px !important;
+  background: #fff !important;
+}
+#homeProducts .prod-image-link,
+.product-catalog-page .reference-prod-card .prod-image-link {
+  inset: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  padding: 10px !important;
+  overflow: hidden !important;
+}
+#homeProducts .prod-image-link img,
+.product-catalog-page .reference-prod-card .prod-image-link img,
+.reference-prod-card .prod-image-link img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 16px !important;
+  transform: none !important;
+}
+.reference-prod-card:hover .prod-image-link img {
+  transform: none !important;
+}
+.product-catalog-page .product-detail-panel .detail-media-shell {
+  height: 420px !important;
+}
+.product-detail-page .standalone-detail-panel .detail-media-shell {
+  height: min(40vw, 520px) !important;
+  min-height: 420px !important;
+}
+.detail-main-media {
+  inset: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  overflow: hidden !important;
+  background: #fff !important;
+}
+.detail-main-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 24px !important;
+  transform: none !important;
+}
+.home-products-more {
+  display: flex;
+  justify-content: center;
+  margin: 28px auto 0;
+}
+.home-see-all {
+  min-height: 48px !important;
+  padding: 14px 26px !important;
+  font-size: 15px !important;
+  font-weight: 850 !important;
+  border-radius: 13px !important;
+  box-shadow: 0 10px 24px rgba(18, 104, 232, .18);
+}
+.nav-actions .callpill,
+.reference-nav-tools .callpill {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px !important;
+  padding: 12px 18px !important;
+  font-size: 17px !important;
+  font-weight: 900 !important;
+  letter-spacing: .3px !important;
+  line-height: 1.1 !important;
+  color: #10385b !important;
+  background: linear-gradient(110deg,#fff 0%,#e8f6ff 28%,#fff 49%,#d8efff 68%,#fff 100%) !important;
+  border: 1px solid #9ecbec !important;
+  box-shadow: 0 6px 18px rgba(18,83,132,.18), inset 0 1px 0 rgba(255,255,255,.96) !important;
+  white-space: nowrap;
+}
+.reference-nav-tools .callpill::after,
+.nav-actions .callpill::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -35%;
+  left: -85%;
+  width: 42%;
+  height: 170%;
+  background: linear-gradient(105deg,transparent,rgba(255,255,255,.96),rgba(120,198,255,.58),transparent);
+  transform: skewX(-24deg);
+  animation: leartechPhoneShimmer 3.3s ease-in-out infinite;
+  pointer-events: none;
+}
+@media (max-width: 1200px) {
+  #homeProducts .prod-media,
+  .product-catalog-page .reference-prod-card .prod-media { height: 220px !important; min-height: 220px !important; }
+  .nav-actions .callpill,
+  .reference-nav-tools .callpill { font-size: 15px !important; padding: 10px 12px !important; }
+}
+@media (max-width: 760px) {
+  #homeProducts .prod-media,
+  .product-catalog-page .reference-prod-card .prod-media { height: 196px !important; min-height: 196px !important; }
+  #homeProducts .prod-image-link img,
+  .product-catalog-page .reference-prod-card .prod-image-link img,
+  .reference-prod-card .prod-image-link img { padding: 10px !important; transform: none !important; }
+  .product-catalog-page .product-detail-panel .detail-media-shell { height: 360px !important; }
+  .product-detail-page .standalone-detail-panel .detail-media-shell { height: min(86vw, 410px) !important; min-height: 300px !important; }
+  .detail-main-image { padding: 16px !important; }
+  .nav-actions .callpill,
+  .reference-nav-tools .callpill { min-height: 38px !important; font-size: 13px !important; padding: 8px 10px !important; }
+  .reference-nav-tools .pill.primary { font-size: 10px !important; padding: 8px 9px !important; }
+  .home-products-more { margin-top: 20px; }
+}
+@media (max-width: 420px) {
+  #homeProducts .prod-media,
+  .product-catalog-page .reference-prod-card .prod-media { height: 178px !important; min-height: 178px !important; }
+  .product-catalog-page .product-detail-panel .detail-media-shell { height: 330px !important; }
+  .product-detail-page .standalone-detail-panel .detail-media-shell { height: 320px !important; min-height: 300px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-nav-tools .callpill::after,
+  .nav-actions .callpill::after { animation: none !important; display: none !important; }
+}
