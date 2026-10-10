@@ -1,0 +1,54 @@
+/* Product photo and navigation polish • 10 October 2026 */
+.links a,
+.product-catalog-page .reference-nav .links a,
+.product-detail-page .reference-nav .links a {
+  font-size: 14px !important;
+  font-weight: 650 !important;
+}
+.nav-actions .callpill {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px !important;
+  padding: 10px 17px !important;
+  border-radius: 12px !important;
+  font-size: 16px !important;
+  font-weight: 850 !important;
+  letter-spacing: .25px !important;
+  color: #10385b !important;
+  background: linear-gradient(110deg,#ffffff 0%,#e8f6ff 28%,#ffffff 49%,#d8efff 68%,#ffffff 100%) !important;
+  border: 1px solid #9ecbec !important;
+  box-shadow: 0 6px 18px rgba(18,83,132,.18), inset 0 1px 0 rgba(255,255,255,.96) !important;
+  white-space: nowrap;
+}
+.nav-actions .callpill::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -35%;
+  left: -85%;
+  width: 42%;
+  height: 170%;
+  background: linear-gradient(105deg,transparent,rgba(255,255,255,.96),rgba(120,198,255,.58),transparent);
+  transform: skewX(-24deg);
+  animation: leartechPhoneShimmer 3.3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes leartechPhoneShimmer {
+  0%, 38% { left: -85%; opacity: 0; }
+  48% { opacity: .95; }
+  78%, 100% { left: 145%; opacity: 0; }
+}
+@media (max-width: 1200px) {
+  .links a { font-size: 12px !important; }
+  .nav-actions .callpill { font-size: 14px !important; padding-inline: 10px !important; }
+}
+@media (max-width: 760px) {
+  .nav-actions .callpill { font-size: 13px !important; padding: 8px 10px !important; min-height: 38px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-actions .callpill::after { animation: none !important; display: none !important; }
+}
