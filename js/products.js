@@ -145,13 +145,18 @@
 
   function setCardImage(card,index){
     const gallery = card._gallery || [card.querySelector("[data-card-image]")?.src || getProduct(card.dataset.productId).preview];
-    const safe = ((index % 4) + 4) % 4;
+    const total = Math.max(1, gallery.length);
+    const safe = ((index % total) + total) % total;
     const img = card.querySelector("[data-card-image]");
     if(img) img.src = gallery[safe];
     card.dataset.imageIndex = String(safe);
-    card.querySelectorAll(".media-dot").forEach((dot,i)=>dot.classList.toggle("active",i===safe));
+    card.querySelectorAll(".media-dot").forEach((dot,i)=>{
+      dot.hidden = i >= total;
+      dot.classList.toggle("active",i===safe);
+    });
+    card.querySelectorAll(".media-arrow").forEach(button=>button.hidden = total <= 1);
     const count=card.querySelector(".media-count");
-    if(count) count.textContent=(safe+1)+"/4";
+    if(count) count.textContent=(safe+1)+"/"+total;
   }
 
   function cardImageClick(card,index){
@@ -300,15 +305,17 @@
 
     const main = root.querySelector(".detail-main-image");
     const thumbs = root.querySelector(".detail-thumbs");
-    let gallery = [product.preview,product.preview,product.preview,product.preview];
+    let gallery = [product.preview];
     let activeIndex = 0;
     let qty = 1;
 
     const apply = (index)=>{
-      activeIndex = (index+4)%4;
+      const total = Math.max(1,gallery.length);
+      activeIndex = ((index%total)+total)%total;
       main.src = gallery[activeIndex];
-      main.alt = product.name + " view " + (activeIndex+1);
-      root.querySelector(".detail-index").textContent=(activeIndex+1)+"/4";
+      main.alt = product.name + (total > 1 ? " view " + (activeIndex+1) : "");
+      root.querySelector(".detail-index").textContent=(activeIndex+1)+"/"+total;
+      root.querySelectorAll(".detail-arrow").forEach(button=>button.hidden = total <= 1);
       thumbs.querySelectorAll("button").forEach((btn,i)=>btn.classList.toggle("active",i===activeIndex));
     };
 
