@@ -202,3 +202,38 @@
 .product-catalog-page header .links.mobile-open a.active,.product-detail-page header .links.mobile-open a.active{color:#1268e8!important;-webkit-text-fill-color:#1268e8!important;background:#edf5ff!important}
 .product-catalog-page header .links.mobile-open a.active:before,.product-catalog-page header .links.mobile-open a.active:after,.product-detail-page header .links.mobile-open a.active:before,.product-detail-page header .links.mobile-open a.active:after{display:none!important}
 }
+
+
+/* Make the product-page wordmark use the homepage's exact casing and small-label typography. */
+.product-catalog-page header .brand,
+.product-detail-page header .brand {
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  flex-direction: initial !important;
+  color: #0b1e35 !important;
+  -webkit-text-fill-color: #0b1e35 !important;
+  white-space: nowrap !important;
+}
+.product-catalog-page header .brand > span,
+.product-detail-page header .brand > span {
+  color: #1268e8 !important;
+  -webkit-text-fill-color: #1268e8 !important;
+}
+.product-catalog-page header .brand small,
+.product-detail-page header .brand small {
+  margin-top: -3px !important;
+  text-align: right !important;
+  color: #62748a !important;
+  -webkit-text-fill-color: #62748a !important;
+  font-size: 7px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: normal !important;
+  white-space: nowrap !important;
+}
+@media (max-width: 760px) {
+  .product-catalog-page header .brand small,
+  .product-detail-page header .brand small {
+    font-size: 6px !important;
+  }
+}
